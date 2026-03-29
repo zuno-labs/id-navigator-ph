@@ -75,7 +75,7 @@ header{position:sticky;top:0;z-index:200;background:var(--navy);padding:0 24px;h
 .meta-pill-label{font-size:10px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
 .meta-pill-value{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--gold)}
 .app-type-banner{background:var(--gold-pale);border-bottom:1px solid #fde68a;padding:9px 30px;display:flex;align-items:center;gap:6px;font-size:13px;color:#78350f;font-weight:600}
-.detail-tabs{border-bottom:2px solid var(--border);padding:0 30px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.detail-tabs{border-bottom:2px solid var(--border);padding:0 30px;display:flex;gap:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
 .detail-tabs::-webkit-scrollbar{display:none}
 .tab-btn{padding:14px 18px;border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .18s}
 .tab-btn:hover{color:var(--navy)}
@@ -143,6 +143,13 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
 .back-btn:hover{background:var(--navy-mid);transform:scale(1.05)}
 .back-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .back-btn.show{display:flex}
+.search-container{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.search-label{font-family:'Sora',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+.search-input{flex:1;padding:12px 18px;border:2px solid var(--border);border-radius:var(--r);font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:var(--navy);background:var(--cream);transition:all .2s;outline:none;display:block;margin-bottom:0}
+@media(max-width:680px){
+  .search-container{flex-direction:column;align-items:flex-start;gap:8px}
+  .search-input{width:100%}
+}
 @media(max-width:680px){
   .overview-grid{grid-template-columns:1fr}
   .detail-header{flex-direction:column}
@@ -212,7 +219,10 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
         <div class="type-btn-desc">ID was lost, stolen, or physically damaged</div>
       </button>
     </div>
-    <div class="config-label">Step 2 — Which ID do you need?</div>
+            <div class="search-container">
+      <div class="search-label">Step 2 — </div>
+      <input type="text" class="search-input" id="id-search" placeholder="WHICH ID DO YOU NEED?" oninput="handleSearch(this.value)">
+    </div>
     <div class="id-grid" id="id-grid"></div>
   </div>
 
@@ -267,7 +277,7 @@ const IDS = {
   passport:{
     icon:'🛂',name:'Philippine Passport',agency:'Department of Foreign Affairs (DFA)',
     desc:"Your primary international travel document and official proof of Philippine citizenship. Also widely accepted as a valid ID for domestic transactions.",
-    feeShort:'₱950 – ₱1,200',timeShort:'7–15 working days',lastVerified:'March 2025',
+    feeShort:'₱950 – ₱1,200',timeShort:'7–15 working days',lastVerified:'March 2026',
     eligibility:['All Filipino citizens — any age, including newborns','Dual citizens with proof of citizenship','OFWs and their dependents','Minors with parent or guardian present and signing'],
     ageReq:"No minimum age. Minors need a parent or guardian to be present. Solo international travel requires being 18+.",
     whatExpect:['Expect long queues even with an appointment — arrive 30 minutes early','DFA takes your photo on-site. You do NOT bring your own passport photo.','Bring BOTH originals AND photocopies of every document','No sleeveless tops allowed in DFA offices — dress conservatively','Claiming can be done at the branch or via courier (additional fee)','Appointment slots fill up fast — check early morning for cancellations'],
@@ -352,7 +362,7 @@ const IDS = {
   nationalid:{
     icon:'🪪',name:'PhilSys / PhilID (ePhilID)',agency:'Philippine Statistics Authority (PSA)',
     desc:"The Philippine Identification System provides a single, unified national ID for all Filipinos. It reduces the need to carry multiple IDs and is accepted across government and private transactions.",
-    feeShort:'FREE',timeShort:'Weeks to months (delivery)',lastVerified:'March 2025',
+    feeShort:'FREE',timeShort:'Weeks to months (delivery)',lastVerified:'March 2026',
     eligibility:['ALL Filipino citizens — any age, including newborns','Resident aliens with legal stay in the Philippines','Overseas Filipinos (can register at embassies/consulates)','Stateless persons residing in the Philippines'],
     ageReq:"Any age. Children under 5 complete Step 1 only (no biometrics). Biometrics start at age 5. Teens who turn 17 must update their biometrics.",
     whatExpect:['Registration has TWO steps: data collection, then in-person biometrics at a PSA center','The card is NOT issued on registration day — it will be DELIVERED to your registered address','You\'ll receive a Transaction Slip after Step 2 containing your PhilSys Number (PSN). Keep it safe.','Your PSN can already be used for government transactions even before the physical card arrives','Mobile registration units may visit your barangay — check with your LGU','Delivery timelines vary — some receive it in weeks, others wait several months depending on area'],
@@ -422,7 +432,7 @@ const IDS = {
   nbi:{
     icon:'🔍',name:'NBI Clearance',agency:'National Bureau of Investigation (NBI)',
     desc:"A certificate showing you have no pending criminal case in NBI records. Required for employment, travel, immigration applications, and many government and private transactions. Valid for 1 year.",
-    feeShort:'₱130 – ₱155',timeShort:'Same day (if no hit)',lastVerified:'March 2025',
+    feeShort:'₱130 – ₱155',timeShort:'Same day (if no hit)',lastVerified:'March 2026',
     eligibility:['Any Filipino citizen who needs a background check document','Foreigners residing in the Philippines','OFWs applying for overseas employment','18 years old and above (minors need a parent/guardian)'],
     ageReq:"18 years old and above. Minors (below 18) must be accompanied by a parent or guardian who signs on their behalf.",
     whatExpect:['If you have a common Filipino name, you might get a "hit" even without a criminal record','A "hit" does NOT mean you have a record — it means your name matched something in the database','Same-day release only happens if there is NO hit','NBI Clearance is valid for ONE YEAR — it expires','The clearance is printed on security paper. Do NOT fold it.','E-clearance (digital copy) is available for an extra ₱25'],
@@ -487,7 +497,7 @@ const IDS = {
   license:{
     icon:'🚗',name:"Driver's License",agency:'Land Transportation Office (LTO)',
     desc:"The official authorization to drive motor vehicles in the Philippines. Also widely accepted as a valid government-issued photo ID for many transactions.",
-    feeShort:'₱317 – ₱652',timeShort:'Same day permit, 2–3 wks card',lastVerified:'March 2025',
+    feeShort:'₱317 – ₱652',timeShort:'Same day permit, 2–3 wks card',lastVerified:'March 2026',
     eligibility:['Filipino citizens aged 17+ (Student Permit only)','Residents aged 18+ (Non-Professional and Professional License)','Resident aliens with a valid stay permit','17-year-olds need parental consent for Student Permit'],
     ageReq:"17 years old for a Student Permit (with parental consent). 18 years old and above for Non-Professional and Professional Driver's License.",
     whatExpect:["Getting a first license is a two-stage process: Student Permit → actual Driver's License","You will NOT receive the plastic card on the same day — you get a temporary paper license first","Medical certificate and drug test MUST be from LTO-ACCREDITED clinics — not just any clinic",'Expect long queues — arrive very early',"The practical driving exam is at LTO's official track, not public roads","License renewal is every 5 years. If expired more than 3 years ago, you may need to restart."],
@@ -567,7 +577,7 @@ const IDS = {
   sss:{
     icon:'💳',name:'SSS ID / UMID / MySSS Card',agency:'Social Security System (SSS)',
     desc:"The official physical ID card for SSS members in the private sector. Commonly called the UMID card — it functions as a multi-purpose ID accepted across government and private transactions. New issuances are branded as the MySSS Card.",
-    feeShort:'FREE (₱200 replacement)',timeShort:'30–45 working days',lastVerified:'March 2025',
+    feeShort:'FREE (₱200 replacement)',timeShort:'30–45 working days',lastVerified:'March 2026',
     eligibility:['Active or voluntarily registered SSS members','At least 1 posted SSS contribution required before applying','Employed, self-employed, OFW, and voluntary members','Not for government employees — they use the GSIS eCard'],
     ageReq:"Any SSS-registered member. No minimum age, but practical registration begins when you join the workforce.",
     whatExpect:['Card is mailed to your registered mailing address — confirm it is correct before applying','SSS UMID is one of the most widely accepted valid IDs in the Philippines','As of 2024–2025, SSS is rolling out updated card formats under the MySSS Card brand','The UMID also functions as a cash card for SSS loan proceeds and benefit disbursements','Processing times can be long — track your application through My.SSS'],
@@ -638,7 +648,7 @@ const IDS = {
   postal:{
     icon:'📬',name:'Postal ID',agency:'Philippine Postal Corporation (PHLPost)',
     desc:"One of the easiest and most accessible government-issued IDs to obtain. Accepted as a valid primary ID by most banks, government agencies, and private companies. Particularly useful as a starter ID for those who don't yet have other government IDs.",
-    feeShort:'≈₱504',timeShort:'10–15 working days',lastVerified:'March 2025',
+    feeShort:'≈₱504',timeShort:'10–15 working days',lastVerified:'March 2026',
     eligibility:['All Filipino citizens','Resident foreign nationals','Both employed and unemployed individuals','Students — practical age is 18 and above'],
     ageReq:"Generally 18 years old. Minors may apply with parental assistance at most PHLPost offices.",
     whatExpect:['One of the simplest government IDs to get — no appointment needed at most offices','The card is valid for 3 years and includes a photo','PHLPost captures biometrics on-site (photo, signature, fingerprints)','Card is NOT issued the same day — available for pick-up in 10–15 working days','Claim the card at the same branch where you applied'],
@@ -710,7 +720,7 @@ const IDS = {
   voter:{
     icon:'🗳️',name:'Voter Certification (COMELEC)',agency:'Commission on Elections (COMELEC)',
     desc:"⚠️ COMELEC no longer issues new physical Voter's ID cards. Registered voters instead request a Voter Certification — an official printed document confirming registration status and precinct details. This is the current standard document for proving voter status.",
-    feeShort:'₱75 per copy',timeShort:'Same day',lastVerified:'March 2025',
+    feeShort:'₱75 per copy',timeShort:'Same day',lastVerified:'March 2026',
     eligibility:['Registered voters (on the COMELEC voter registry)','Must have completed full voter registration at COMELEC','Registration is open to Filipino citizens who will be 18 by election day'],
     ageReq:"18 years old and above to vote. Registration is open to those who will be at least 18 on election day.",
     whatExpect:['The physical Voter\'s ID card is NO LONGER being issued for new applicants as of the early 2020s','If you have an old card from 2010–2019, it may still be accepted as ID but COMELEC will not produce a new one','Voter Certification (₱75) confirms your name, address, and precinct number','Many banks, companies, and agencies accept a Voter Certification as a valid supporting document','The COMELEC eVoter App shows your voter info digitally for free','Voter registration periods open and close — check comelec.gov.ph for current schedule'],
@@ -774,7 +784,7 @@ const IDS = {
   philhealth:{
     icon:'🏥',name:'PhilHealth ID Card',agency:'Philippine Health Insurance Corporation (PhilHealth)',
     desc:"PhilHealth membership card issued to registered members. Primarily used to identify yourself as a PhilHealth member when accessing medical benefits and filing claims. Accepted as a supporting government-issued ID.",
-    feeShort:'FREE',timeShort:'2–4 weeks',lastVerified:'March 2025',
+    feeShort:'FREE',timeShort:'2–4 weeks',lastVerified:'March 2026',
     eligibility:['Registered PhilHealth members (employed, self-employed, OFWs, indigents, lifetime members)','Dependents are covered under a member\'s account but may not receive a separate physical card'],
     ageReq:"Any PhilHealth member. No minimum age.",
     whatExpect:['The PhilHealth Number (MDR/MRN) is what matters for transactions — the physical card is secondary','For most medical transactions, simply knowing your PhilHealth Number is sufficient','Not all PhilHealth offices regularly issue physical cards — availability varies by branch','Employers are responsible for remitting PhilHealth contributions — confirm yours are being paid','Check your contribution history and records online at philhealth.gov.ph'],
@@ -841,7 +851,7 @@ const IDS = {
   gsis:{
     icon:'🏛️',name:'GSIS eCard',agency:'Government Service Insurance System (GSIS)',
     desc:"The official ID and cash card for government employees and pensioners covered by GSIS. Also functions as a UMID card for the government sector. Required for accessing GSIS services, loans, and benefits.",
-    feeShort:'FREE',timeShort:'2–4 weeks',lastVerified:'March 2025',
+    feeShort:'FREE',timeShort:'2–4 weeks',lastVerified:'March 2026',
     eligibility:['Active government employees (national and local government)','Government retirees and pensioners','Survivors of GSIS members receiving benefits','Not available to private sector workers — they use SSS UMID instead'],
     ageReq:"Any government employee or pensioner. No minimum age.",
     whatExpect:['The GSIS eCard functions as a UMID for government workers','It also serves as a cash card for GSIS benefit and loan disbursements','Biometrics are captured at a GSIS enrollment center','Card production and delivery takes 2–4 weeks','Enrollment can be done at your agency\'s GSIS liaison or at a GSIS branch'],
@@ -910,7 +920,7 @@ const IDS = {
   prc:{
     icon:'🎓',name:'PRC ID',agency:'Professional Regulation Commission (PRC)',
     desc:"The Professional Identification Card issued to licensed professionals (doctors, nurses, engineers, architects, accountants, and others) who have passed the relevant board examination. Functions as both proof of professional license and a valid government-issued photo ID.",
-    feeShort:'Part of license fees',timeShort:'3–5 days (initial)',lastVerified:'March 2025',
+    feeShort:'Part of license fees',timeShort:'3–5 days (initial)',lastVerified:'March 2026',
     eligibility:['Board exam passers of PRC-regulated professions','Licensed professionals renewing their PRC license','Only available to those who passed a PRC-administered board exam'],
     ageReq:"No minimum age, but board exams require completion of a relevant degree program first.",
     whatExpect:['The PRC ID IS the professional license card — you do not apply for them separately','The card shows your name, profession, license number, and validity dates','PRC licenses must be renewed every 3 years via CPD (Continuing Professional Development)','PRC has an online appointment and renewal system at prc.gov.ph','Walk-ins are rarely accommodated at most PRC offices'],
@@ -987,7 +997,7 @@ const IDS = {
   senior:{
     icon:'👴',name:'Senior Citizen ID (OSCA)',agency:'Office for Senior Citizens Affairs (OSCA) / LGU',
     desc:"Issued by local government units through the OSCA. Entitles Filipino senior citizens to discounts, privileges, and social benefits under the Expanded Senior Citizens Act (RA 9994). Also functions as a valid government-issued ID.",
-    feeShort:'FREE',timeShort:'Same day to 1 week',lastVerified:'March 2025',
+    feeShort:'FREE',timeShort:'Same day to 1 week',lastVerified:'March 2026',
     eligibility:['Filipino citizens aged 60 years and above','Must reside in the city/municipality where applying','Some LGUs also accommodate resident foreign nationals aged 60+'],
     ageReq:"60 years old and above.",
     whatExpect:['Senior Citizen ID entitles holder to 20% discount + VAT exemption on many goods and services','The card is issued FREE — do not pay for it under any circumstances','Issued at the city or municipal OSCA office — not at any national agency','Processing time varies: same day at many offices, up to 1 week at others','The card is effectively for lifetime use — no regular renewal required'],
@@ -1033,7 +1043,7 @@ const IDS = {
         {step:'Go to your OSCA office with your other valid IDs'},
         {step:'Inform staff that your card was lost or damaged and request a replacement'},
         {step:'Submit the required documents (affidavit, damaged card)'},
-        {step:'Receive the replacement card — free of charge'},
+        {step:'Receive the replacement card (free of charge)'},
       ],
     },
     commonMistakes:[
@@ -1051,7 +1061,7 @@ const IDS = {
   tin:{
     icon:'💼',name:'TIN ID (BIR)',agency:'Bureau of Internal Revenue (BIR)',
     desc:"The Tax Identification Number (TIN) ID card issued by the BIR to registered taxpayers. Functions as proof of TIN assignment and a government-issued supporting ID. Every Filipino with income is required by law to have a TIN.",
-    feeShort:'FREE',timeShort:'Same day (TIN); days to weeks (card)',lastVerified:'March 2025',
+    feeShort:'FREE',timeShort:'Same day (TIN); days to weeks (card)',lastVerified:'March 2026',
     eligibility:['Employed individuals (typically registered by employer)','Self-employed persons and professionals','Persons with one-time tax transactions (selling property, etc.)','Every Filipino with taxable income is legally required to have a TIN'],
     ageReq:"No minimum age. Anyone with taxable income or a transaction requiring a TIN needs one.",
     whatExpect:['CRITICAL: You can only ever have ONE TIN. Having duplicate TINs is illegal and punishable.','Employed individuals are typically registered by their employer — check with HR before self-registering','The physical TIN ID card is separate from just having a TIN number. The card requires a specific request at the RDO.','For most official transactions, knowing your TIN number is sufficient. The card is a bonus.','BIR is transitioning to eCards (plastic) but availability varies widely by RDO'],
@@ -1119,7 +1129,7 @@ const IDS = {
   pwd:{
     icon:'♿',name:'PWD ID',agency:'NCDA / City–Municipal Social Welfare and Development Office',
     desc:"Issued free of charge to persons with disabilities (PWDs) in the Philippines. Entitles holders to discounts and benefits under RA 7277 (Magna Carta for Disabled Persons) and RA 10524. Processed at the local government unit level.",
-    feeShort:'FREE',timeShort:'Same day to 1 week',lastVerified:'March 2025',
+    feeShort:'FREE',timeShort:'Same day to 1 week',lastVerified:'March 2026',
     eligibility:['Filipino citizens with a recognized disability (physical, sensory, intellectual, mental, psychosocial, communication, etc.)','Both permanent and temporary conditions may qualify','Must reside in the city/municipality where applying','Children with disabilities may be registered by a parent or guardian'],
     ageReq:"Any age. Children with disabilities may also be registered — parents or guardians apply on their behalf.",
     whatExpect:['PWD ID entitles holder to 20% discount + VAT exemption on specific goods and services','Registration and the card are FREE by law — do not pay for them','Apply at the CSWDO or MSWDO of your city/municipality — this is an LGU-level process','Validity is typically 3 years, though some LGUs issue lifetime IDs','A medical certificate documenting your disability is usually required','Discounts apply to medicine, medical services, transport, restaurants, and more'],
@@ -1185,7 +1195,7 @@ const IDS = {
   barangay:{
     icon:'🏘️',name:'Barangay Clearance',agency:'Barangay Office (Local Government)',
     desc:"Certifies that you have no pending complaint or case in your barangay records. Required for employment applications, business permits, loan applications, and many government and private transactions. Valid for 6 months to 1 year.",
-    feeShort:'₱50–₱200',timeShort:'Same day',lastVerified:'March 2025',
+    feeShort:'₱50–₱200',timeShort:'Same day',lastVerified:'March 2026',
     eligibility:['Any registered resident of the barangay','Must be registered/recognized as a resident in the barangay where you are applying'],
     ageReq:"Generally 18 and above for employment or transaction purposes. Some clearances for minors may be assisted by parents.",
     whatExpect:['One of the simplest and fastest documents to obtain in the Philippines','Usually issued the same day — often within minutes to an hour','Valid for 6 months to 1 year depending on the barangay','Fee varies widely per barangay — typically ₱50–₱200','Note: this is a clearance document, not a persistent physical ID card','You must be a registered resident of the barangay to get a clearance'],
@@ -1607,10 +1617,27 @@ function showTab(tabName){
   setTab(map[raw] || raw);
 }
 
+let searchQuery = '';
+
+function handleSearch(val){
+  searchQuery = val.toLowerCase().trim();
+  renderIDGrid();
+}
+
 function renderIDGrid(){
   const grid = document.getElementById('id-grid');
   if(!grid) return;
-  const ids = Object.keys(IDS).sort((a,b)=> (IDS[a].name||'').localeCompare(IDS[b].name||''));
+  let ids = Object.keys(IDS).sort((a,b)=> (IDS[a].name||'').localeCompare(IDS[b].name||''));
+  
+  if(searchQuery){
+    ids = ids.filter(id => {
+      const d = IDS[id];
+      return d.name.toLowerCase().includes(searchQuery) || 
+             d.agency.toLowerCase().includes(searchQuery) ||
+             id.toLowerCase().includes(searchQuery);
+    });
+  }
+
   const esc = (v)=> String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
   grid.innerHTML = ids.map(id=>{
     const d = IDS[id];
