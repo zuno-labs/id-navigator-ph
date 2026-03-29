@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ID Navigator PH — Government ID Guide for Filipinos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f2350;--navy-mid:#1e3a6e;--gold:#F5A623;--gold-pale:#FFF3D4;
+  --cream:#f6f4ee;--white:#ffffff;--text:#131c35;--body:#374151;--muted:#6b7280;
+  --red:#dc2626;--red-bg:#fef2f2;--green:#16a34a;--green-bg:#f0fdf4;
+  --blue-bg:#eff6ff;--blue-border:#bfdbfe;--orange-bg:#fff7ed;--orange-text:#92400e;
+  --border:#e8e4db;--shadow-sm:0 1px 4px rgba(15,35,80,.06);
+  --shadow-md:0 4px 20px rgba(15,35,80,.1);--shadow-lg:0 8px 40px rgba(15,35,80,.14);
+  --r:12px;--r-sm:8px;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--body);line-height:1.6;min-height:100vh}
+header{position:sticky;top:0;z-index:200;background:var(--navy);padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(0,0,0,.25)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:34px;height:34px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(245,166,35,.4)}
+.logo-text{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:#fff}
+.logo-text span{color:var(--gold)}
+.logo-sub{font-size:10px;color:rgba(255,255,255,.4);font-weight:500;letter-spacing:.04em}
+.header-badge{background:rgba(245,166,35,.15);color:var(--gold);border:1px solid rgba(245,166,35,.3);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.04em}
+.hero{background:var(--navy);padding:52px 24px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(245,166,35,.1) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.12) 0%,transparent 65%);top:-200px;right:-150px;pointer-events:none}
+.hero-glow2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(30,58,110,.6) 0%,transparent 70%);bottom:-100px;left:-80px;pointer-events:none}
+.hero-inner{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,166,35,.15);color:var(--gold);border:1px solid rgba(245,166,35,.3);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(26px,5vw,48px);font-weight:800;line-height:1.15;color:#fff;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:15px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 28px}
+.hero-steps{display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.hero-step{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-size:12px;color:rgba(255,255,255,.75)}
+.hero-step strong{color:#fff;font-weight:600}
+.main{max-width:1080px;margin:0 auto;padding:0 20px;padding-bottom:max(24px,env(safe-area-inset-bottom,0px))}
+.disclaimer{background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 16px;margin:20px 0 16px;font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:flex-start;box-shadow:var(--shadow-sm)}
+.disclaimer strong{color:var(--body)}
+.configurator{background:#fff;border-radius:0 0 var(--r) var(--r);padding:28px 28px 24px;margin-bottom:20px;box-shadow:var(--shadow-md)}
+.config-label{font-family:'Sora',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+.app-type-toggle{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap}
+.type-btn{flex:1;min-width:140px;padding:14px 18px;border-radius:var(--r);border:2px solid var(--border);background:#fff;cursor:pointer;text-align:left;transition:all .2s}
+.type-btn:hover{border-color:var(--navy-mid);box-shadow:var(--shadow-sm)}
+.type-btn.active{border-color:var(--navy);background:var(--navy);color:#fff;box-shadow:0 4px 16px rgba(15,35,80,.25)}
+.type-btn-title{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;margin-bottom:3px}
+.type-btn-desc{font-size:11px;color:var(--muted)}
+.type-btn.active .type-btn-desc{color:rgba(255,255,255,.65)}
+.id-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.id-card{padding:16px;border-radius:var(--r);border:2px solid var(--border);background:#fff;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
+.id-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,166,35,0) 0%,rgba(245,166,35,.04) 100%);opacity:0;transition:opacity .2s}
+.id-card:hover{border-color:var(--navy-mid);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.id-card:hover::after{opacity:1}
+.id-card.active{border-color:var(--navy);background:var(--navy);color:#fff;box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.id-card-icon{font-size:24px;margin-bottom:8px}
+.id-card-name{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;margin-bottom:2px;line-height:1.3}
+.id-card-agency{font-size:10px;color:var(--muted)}
+.id-card.active .id-card-agency{color:rgba(255,255,255,.55)}
+.id-card-time{margin-top:8px;font-size:10px;font-weight:700;color:var(--green);background:var(--green-bg);padding:2px 7px;border-radius:4px;display:inline-block}
+.id-card.active .id-card-time{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9)}
+.detail-panel{display:none;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-md);margin-bottom:48px;overflow:hidden}
+.detail-panel.visible{display:block;animation:slideUp .3s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.detail-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:#fff;padding:28px 30px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.detail-hdr-left{flex:1;min-width:0}
+.d-icon{font-size:34px;margin-bottom:8px}
+.d-name{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;margin-bottom:4px}
+.d-agency{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px}
+.d-desc{font-size:13px;color:rgba(255,255,255,.8);max-width:480px;line-height:1.65}
+.detail-meta{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.meta-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:8px 14px;border-radius:8px;text-align:right;min-width:140px}
+.meta-pill-label{font-size:10px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.meta-pill-value{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--gold)}
+.app-type-banner{background:var(--gold-pale);border-bottom:1px solid #fde68a;padding:9px 30px;display:flex;align-items:center;gap:6px;font-size:13px;color:#78350f;font-weight:600}
+.detail-tabs{border-bottom:2px solid var(--border);padding:0 30px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.detail-tabs::-webkit-scrollbar{display:none}
+.tab-btn{padding:14px 18px;border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .18s}
+.tab-btn:hover{color:var(--navy)}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--navy)}
+.tab-content{padding:28px 30px;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-block{margin-bottom:24px}
+.section-title{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.eligibility-box{background:var(--green-bg);border:1px solid #bbf7d0;border-radius:var(--r-sm);padding:14px;margin-bottom:10px}
+.elig-title{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.elig-list{list-style:none}
+.elig-list li{padding:3px 0 3px 18px;position:relative;font-size:13px;color:#166534}
+.elig-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.age-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-pale);color:var(--orange-text);padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600}
+.time-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.time-card{background:var(--cream);border-radius:var(--r-sm);padding:12px;border:1px solid var(--border)}
+.time-card-label{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.time-card-value{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--navy)}
+.expect-list{list-style:none}
+.expect-item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px}
+.expect-item:last-child{border-bottom:none}
+.expect-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:7px}
+.fee-table{width:100%;border-collapse:collapse;font-size:13px}
+.fee-table th{text-align:left;font-size:11px;font-weight:700;color:var(--muted);padding:8px 10px;background:var(--cream);text-transform:uppercase;letter-spacing:.06em}
+.fee-table th:last-child{text-align:right}
+.fee-table td{padding:10px;border-bottom:1px solid var(--border)}
+.fee-table td:last-child{text-align:right;font-family:'Sora',sans-serif;font-weight:700;color:var(--navy)}
+.fee-free{color:var(--green)!important}
+.req-list{list-style:none}
+.req-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;align-items:flex-start}
+.req-item:last-child{border-bottom:none}
+.req-check{width:20px;height:20px;background:var(--green-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px;color:var(--green);font-weight:700}
+.req-text{flex:1}
+.req-note{font-size:11px;color:var(--muted);margin-top:2px}
+.steps-list{list-style:none}
+.step-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--border);align-items:flex-start}
+.step-item:last-child{border-bottom:none}
+.step-num{width:26px;height:26px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;flex-shrink:0}
+.step-text{flex:1;font-size:13px;padding-top:4px}
+.step-tip{font-size:11px;color:var(--orange-text);background:var(--orange-bg);padding:4px 8px;border-radius:4px;margin-top:5px;display:inline-block}
+.mistakes-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.mistake-item{display:flex;gap:12px;padding:12px 14px;background:var(--red-bg);border-radius:var(--r-sm);border-left:3px solid var(--red);align-items:flex-start}
+.mistake-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.mistake-title{font-weight:700;color:var(--red);margin-bottom:2px;font-size:13px}
+.mistake-desc{color:#7f1d1d;font-size:12px;line-height:1.55}
+.official-links{display:flex;flex-direction:column;gap:8px}
+.official-link{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--cream);border-radius:var(--r-sm);text-decoration:none;color:var(--navy);font-size:13px;font-weight:600;transition:all .2s;border:1px solid var(--border)}
+.official-link:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.official-link span:last-child{margin-left:auto;font-size:11px;opacity:.45}
+.info-box{background:var(--blue-bg);border:1px solid var(--blue-border);border-radius:var(--r-sm);padding:12px 14px;font-size:12px;color:#1e40af;display:flex;gap:8px;margin-bottom:14px}
+.warn-box{background:var(--orange-bg);border:1px solid #fed7aa;border-radius:var(--r-sm);padding:12px 14px;font-size:12px;color:var(--orange-text);display:flex;gap:8px;margin-top:10px}
+.last-verified{margin-top:20px;padding:10px 14px;background:var(--cream);border-radius:var(--r-sm);display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);border:1px solid var(--border)}
+.last-verified strong{color:var(--body)}
+.empty-guide{padding:60px 24px;text-align:center;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-md);margin-bottom:48px}
+.empty-guide-emoji{font-size:52px;margin-bottom:16px}
+.empty-guide h3{font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+.empty-guide p{font-size:14px;color:var(--muted)}
+footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:28px 24px;font-size:12px}
+footer strong{color:var(--gold)}
+footer a{color:rgba(255,255,255,.45);text-decoration:none}
+.footer-links{display:flex;justify-content:center;gap:18px;margin-top:10px;flex-wrap:wrap}
+.back-btn{display:none;position:fixed;bottom:max(16px,env(safe-area-inset-bottom,0px));right:max(12px,env(safe-area-inset-right,0px));width:48px;height:48px;min-width:48px;min-height:48px;background:var(--navy);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;box-shadow:0 4px 20px rgba(15,35,80,.45);z-index:150;align-items:center;justify-content:center;transition:all .2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.back-btn:hover{background:var(--navy-mid);transform:scale(1.05)}
+.back-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.back-btn.show{display:flex}
+@media(max-width:680px){
+  .overview-grid{grid-template-columns:1fr}
+  .detail-header{flex-direction:column}
+  .detail-meta{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .meta-pill{text-align:left;min-width:0}
+  .tab-content{padding:20px 16px}
+  .configurator{padding:20px 16px}
+  .detail-tabs{padding:0 16px}
+  .detail-header{padding:22px 20px}
+  .app-type-banner{padding:9px 20px}
+  .hero{padding:40px 16px 56px}
+  .type-btn{min-width:100%}
+  .main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  header{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .back-btn{bottom:max(12px,env(safe-area-inset-bottom,0px));right:max(8px,env(safe-area-inset-right,0px));width:52px;height:52px;min-width:52px;min-height:52px;font-size:22px}
+  .id-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+  .detail-header{padding:20px 16px}
+  footer{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🇵🇭</div>
+    <div>
+      <div class="logo-text">ID Navigator <span>PH</span></div>
+      <div class="logo-sub">Philippine Government ID Guide</div>
+    </div>
+  </div>
+  <div class="header-badge" id="header-count">🗂️ 18 IDs covered</div>
+</header>
+
+<div class="hero">
+  <div class="hero-glow"></div><div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">📋 Preparation Tool — Not a Government Site</div>
+    <h1>Get your <em>Philippine ID</em><br>right the first time.</h1>
+    <p>Know exactly what to bring, what happens on the day, how long it takes, and what mistakes to avoid — before you go.</p>
+    <div class="hero-steps">
+      <div class="hero-step"><strong>Step 1</strong> Pick your application type</div>
+      <div class="hero-step"><strong>Step 2</strong> Choose your ID</div>
+      <div class="hero-step"><strong>Step 3</strong> Read what to prepare</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="disclaimer">
+    ℹ️ <div><strong>Independent guide only.</strong> This tool is not affiliated with any government agency. Information is for preparation purposes — always verify with official websites before your visit. Fees and processes may change.</div>
+  </div>
+
+  <div class="configurator">
+    <div class="config-label">Step 1 — What are you doing?</div>
+    <div class="app-type-toggle">
+      <button class="type-btn active" id="btn-first" onclick="setAppType('first')">
+        <div class="type-btn-title">🆕 First Time Application</div>
+        <div class="type-btn-desc">Applying for this ID for the very first time</div>
+      </button>
+      <button class="type-btn" id="btn-renewal" onclick="setAppType('renewal')">
+        <div class="type-btn-title">🔄 Renewal</div>
+        <div class="type-btn-desc">Your ID is expiring or has expired</div>
+      </button>
+      <button class="type-btn" id="btn-replacement" onclick="setAppType('replacement')">
+        <div class="type-btn-title">🔁 Replacement / Lost / Damaged</div>
+        <div class="type-btn-desc">ID was lost, stolen, or physically damaged</div>
+      </button>
+    </div>
+    <div class="config-label">Step 2 — Which ID do you need?</div>
+    <div class="id-grid" id="id-grid"></div>
+  </div>
+
+  <div class="empty-guide" id="empty-guide">
+    <div class="empty-guide-emoji">☝️</div>
+    <h3 id="empty-title">Select an ID above to get started</h3>
+    <p id="empty-sub">We'll show you exactly what to prepare, the full process, fees, and common mistakes to avoid.</p>
+  </div>
+
+  <div class="detail-panel" id="detail-panel">
+    <div class="detail-header">
+      <div class="detail-hdr-left">
+        <div class="d-icon" id="d-icon"></div>
+        <div class="d-name" id="d-name"></div>
+        <div class="d-agency" id="d-agency"></div>
+        <div class="d-desc" id="d-desc"></div>
+      </div>
+      <div class="detail-meta" id="detail-meta"></div>
+    </div>
+    <div class="app-type-banner" id="app-type-banner"></div>
+    <div class="detail-tabs" id="detail-tabs"></div>
+    <div class="tab-content" id="tab-content"></div>
+  </div>
+</div>
+
+<footer>
+  <strong>ID Navigator PH</strong> — An independent preparation guide. Not affiliated with any Philippine government agency.
+  <div class="footer-links">
+    <a href="https://dfa.gov.ph" target="_blank">DFA</a>
+    <a href="https://psa.gov.ph" target="_blank">PSA</a>
+    <a href="https://nbi.gov.ph" target="_blank">NBI</a>
+    <a href="https://lto.gov.ph" target="_blank">LTO</a>
+    <a href="https://www.sss.gov.ph" target="_blank">SSS</a>
+    <a href="https://philhealth.gov.ph" target="_blank">PhilHealth</a>
+    <a href="https://www.gsis.gov.ph" target="_blank">GSIS</a>
+    <a href="https://prc.gov.ph" target="_blank">PRC</a>
+    <a href="https://bir.gov.ph" target="_blank">BIR</a>
+    <a href="https://comelec.gov.ph" target="_blank">COMELEC</a>
+    <a href="https://marina.gov.ph" target="_blank">MARINA</a>
+  </div>
+  <div style="margin-top:10px;font-size:11px">Always verify information with official government websites before your appointment.</div>
+</footer>
+
+<button class="back-btn" id="back-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+// ════════════════════════════════════════════════════════
+// ID DATA
+// ════════════════════════════════════════════════════════
+const IDS = {
+
+  passport:{
+    icon:'🛂',name:'Philippine Passport',agency:'Department of Foreign Affairs (DFA)',
+    desc:"Your primary international travel document and official proof of Philippine citizenship. Also widely accepted as a valid ID for domestic transactions.",
+    feeShort:'₱950 – ₱1,200',timeShort:'7–15 working days',lastVerified:'March 2025',
+    eligibility:['All Filipino citizens — any age, including newborns','Dual citizens with proof of citizenship','OFWs and their dependents','Minors with parent or guardian present and signing'],
+    ageReq:"No minimum age. Minors need a parent or guardian to be present. Solo international travel requires being 18+.",
+    whatExpect:['Expect long queues even with an appointment — arrive 30 minutes early','DFA takes your photo on-site. You do NOT bring your own passport photo.','Bring BOTH originals AND photocopies of every document','No sleeveless tops allowed in DFA offices — dress conservatively','Claiming can be done at the branch or via courier (additional fee)','Appointment slots fill up fast — check early morning for cancellations'],
+    fees:[{label:'Regular processing (15 working days)',amount:'₱950'},{label:'Express processing (7 working days)',amount:'₱1,200'},{label:'Courier delivery (optional)',amount:'+₱170–₱230'},{label:'Lost passport surcharge',amount:'+₱350'}],
+    processingTimes:[{label:'Regular',value:'15 working days'},{label:'Express',value:'7 working days'},{label:'DFA Aseana Express',value:'5 working days'}],
+    firstTime:{
+      requirements:[
+        {text:'Online appointment from passport.gov.ph',note:'Required — walk-ins are almost never accepted'},
+        {text:'Accomplished eForm (Passport Application)',note:'Fill out online at passport.gov.ph, then print cleanly. Do NOT write on it.'},
+        {text:'PSA-issued Birth Certificate (original + 1 photocopy)',note:'Must be clear and readable. Get a fresh copy from PSAHelpLine if yours is damaged.'},
+        {text:'At least 1 valid government-issued photo ID (original + photocopy)',note:'UMID, Driver\'s License, PhilSys ID, PRC ID, etc.'},
+        {text:'For married women using married name: PSA Marriage Certificate'},
+        {text:'For naturalized citizens: Certificate of Naturalization',note:'Issued by the Bureau of Immigration'},
+        {text:'For minors: Both parents must be present',note:'If only one parent attends, bring a notarized Special Power of Attorney from the absent parent'},
+      ],
+      process:[
+        {step:'Book an appointment at passport.gov.ph',tip:'Slots go fast. Check at midnight or 6AM when new slots are sometimes released.'},
+        {step:'Fill out the online eForm at passport.gov.ph and print it. Do NOT write or make corrections on the printed form.'},
+        {step:'Prepare all documents — originals AND photocopies in separate folders'},
+        {step:'Arrive at your chosen DFA office at least 30 minutes before your appointment time'},
+        {step:'Go to the correct lane (first-time applicants, OFW priority, courtesy lane for seniors/PWDs/pregnant)'},
+        {step:'Submit documents to the assessor for review'},
+        {step:'Pay the processing fee at the cashier',tip:'Keep your Official Receipt — you NEED it to claim your passport later.'},
+        {step:'DFA staff takes your biometrics: photo and fingerprints. You cannot use your own photo.'},
+        {step:'Claim passport on the release date at the branch, or request courier delivery for convenience'},
+      ],
+    },
+    renewal:{
+      note:"Renewal requires fewer documents than a first-time application. You still need an online appointment — the process and fees are the same.",
+      requirements:[
+        {text:'Online appointment from passport.gov.ph',note:'Same process — appointment is mandatory'},
+        {text:'Old passport (original)',note:'Bring the actual passport. It will be surrendered and stamped CANCELLED.'},
+        {text:'Photocopy of the data page of your old passport'},
+        {text:'For name change since old passport: PSA Marriage Certificate or Court Order'},
+      ],
+      process:[
+        {step:'Book an appointment at passport.gov.ph (still required for renewals)'},
+        {step:'Gather your old passport and required documents'},
+        {step:'Arrive at the DFA office at least 30 minutes before your appointment'},
+        {step:'Submit documents — old passport will be surrendered and cancelled'},
+        {step:'Pay the processing fee (same rates as first time)'},
+        {step:'Biometrics taken again: new photo and fingerprints'},
+        {step:'Claim new passport on the release date or opt for courier delivery'},
+      ],
+    },
+    replacement:{
+      note:"If your passport was lost, stolen, or severely damaged, you need additional documents beyond the standard renewal requirements. A surcharge applies for lost passports.",
+      requirements:[
+        {text:'Online appointment from passport.gov.ph',note:'Required — same as any other application type'},
+        {text:'Affidavit of Loss',note:'Required for lost or stolen passport — must be notarized'},
+        {text:'Police blotter',note:'Required for lost or stolen passport — file a report at your nearest police station'},
+        {text:'PSA Birth Certificate',note:'Required since you cannot present an old passport'},
+        {text:'At least 1 other valid government-issued photo ID (original + photocopy)'},
+        {text:'Damaged passport (if applicable)',note:'Bring what remains of the damaged passport for surrender'},
+        {text:'For married women with name change: PSA Marriage Certificate'},
+      ],
+      process:[
+        {step:'File a police blotter at your nearest PNP station about the lost/stolen passport'},
+        {step:'Prepare a notarized Affidavit of Loss',tip:'Bring the police blotter reference number to include in your affidavit.'},
+        {step:'Book an appointment at passport.gov.ph and indicate that this is for a lost/damaged passport'},
+        {step:'Prepare all required documents — originals AND photocopies'},
+        {step:'Go to the DFA office on your appointment day with ALL documents'},
+        {step:'Inform the assessor that this is a replacement for a lost/damaged passport'},
+        {step:'Pay the processing fee PLUS the lost passport surcharge (₱350 additional)'},
+        {step:'Biometrics captured on-site. Claim the new passport on the release date.'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Blurry or damaged PSA Birth Certificate',desc:"If it's faded, torn, or hard to read, DFA will reject it at the counter. Get a fresh copy from PSA or PSAHelpLine before your appointment."},
+      {title:'Name discrepancy across documents',desc:"Your name must match across all IDs and documents. Fix discrepancies first by filing a PSA correction if needed. Don't assume they'll let it slide."},
+      {title:'Walking in without an appointment',desc:"DFA offices strictly enforce appointments. Walk-ins are almost never accommodated, even for renewals."},
+      {title:'Forgetting your Official Receipt when claiming',desc:"Your OR from payment day is required when you claim your passport. Lose it and you'll have extra steps to claim."},
+      {title:'Wearing sleeveless tops or revealing clothing',desc:"DFA has a dress code. You'll be asked to step outside and change. Bring a cardigan just in case."},
+    ],
+    officialLinks:[
+      {label:'Passport Appointment System',url:'https://passport.gov.ph',icon:'🌐'},
+      {label:'DFA Official Website',url:'https://dfa.gov.ph',icon:'🏛️'},
+      {label:'DFA Passport FAQ',url:'https://dfa.gov.ph/passport-faqs',icon:'❓'},
+    ],
+  },
+
+  nationalid:{
+    icon:'🪪',name:'PhilSys / PhilID (ePhilID)',agency:'Philippine Statistics Authority (PSA)',
+    desc:"The Philippine Identification System provides a single, unified national ID for all Filipinos. It reduces the need to carry multiple IDs and is accepted across government and private transactions.",
+    feeShort:'FREE',timeShort:'Weeks to months (delivery)',lastVerified:'March 2025',
+    eligibility:['ALL Filipino citizens — any age, including newborns','Resident aliens with legal stay in the Philippines','Overseas Filipinos (can register at embassies/consulates)','Stateless persons residing in the Philippines'],
+    ageReq:"Any age. Children under 5 complete Step 1 only (no biometrics). Biometrics start at age 5. Teens who turn 17 must update their biometrics.",
+    whatExpect:['Registration has TWO steps: data collection, then in-person biometrics at a PSA center','The card is NOT issued on registration day — it will be DELIVERED to your registered address','You\'ll receive a Transaction Slip after Step 2 containing your PhilSys Number (PSN). Keep it safe.','Your PSN can already be used for government transactions even before the physical card arrives','Mobile registration units may visit your barangay — check with your LGU','Delivery timelines vary — some receive it in weeks, others wait several months depending on area'],
+    fees:[{label:'Registration for all Filipino citizens',amount:'FREE'},{label:'Card replacement (lost or damaged)',amount:'≈₱200'}],
+    processingTimes:[{label:'Registration (Step 1 & 2)',value:'30 min – 1 hour'},{label:'Card delivery',value:'Weeks to months'},{label:'Varies by area',value:'Widely varies'}],
+    firstTime:{
+      requirements:[
+        {text:'PSA Birth Certificate OR any valid government ID',note:'Passport, PhilHealth ID, PRC card, Voter\'s ID, etc. accepted as primary document'},
+        {text:'Proof of current address',note:'Utility bill (not older than 3 months), barangay certificate, lease contract, or bank statement'},
+        {text:'Optional: TIN, SSS, GSIS, PhilHealth numbers',note:'Voluntary — links your existing records during registration'},
+      ],
+      process:[
+        {step:'Visit philsys.gov.ph to find the nearest PSA registration center or mobile registration in your area'},
+        {step:'Step 1: Fill out the registration form — done online or at the registration center',tip:'Confirm your address is exactly correct. This is where your card will be delivered.'},
+        {step:'Step 2: Go to the registration center for biometrics — photo, all 10 fingerprints, and iris scan'},
+        {step:'Receive your Transaction Slip after Step 2. This contains your PhilSys Number (PSN).',tip:'Take a photo of this slip immediately as backup. Losing it makes tracking your card very difficult.'},
+        {step:'Wait for your PhilSys card to be delivered to your registered address'},
+        {step:'Track your card status at philsys.gov.ph using your Transaction Slip reference number'},
+      ],
+    },
+    renewal:{
+      note:"The PhilSys card currently has no expiry date — there is no traditional renewal. However, you must update your registration if your personal details change (name after marriage, civil status, address). This section covers those updates.",
+      requirements:[
+        {text:'Transaction Slip from original registration',note:'For reference — contains your PhilSys Number'},
+        {text:'Supporting document for the change',note:'E.g., PSA Marriage Certificate for name/civil status change; new utility bill for address update'},
+        {text:'Current PhilSys ID card (if you have it)',note:'Bring for reference or possible surrender depending on the nature of the update'},
+      ],
+      process:[
+        {step:'Visit the nearest PSA registration center or PSA branch'},
+        {step:'Bring your Transaction Slip, current card, and supporting documents for the change'},
+        {step:'Fill out the update/correction form at the center'},
+        {step:'Submit documents and have biometrics re-captured if required for the update'},
+        {step:'Wait for the updated card to be delivered to your registered address'},
+      ],
+    },
+    replacement:{
+      note:"If your PhilSys card is lost or damaged, you can request a replacement. A replacement fee of approximately ₱200 applies.",
+      requirements:[
+        {text:'Transaction Slip from original registration (if available)',note:'Your PhilSys Number helps the PSA locate your record'},
+        {text:'Affidavit of Loss',note:'Required for lost or stolen card — have it notarized'},
+        {text:'Damaged card (if applicable)',note:'Surrender the damaged card at the PSA center'},
+        {text:'Valid supporting ID for identity verification',note:'Any valid government-issued ID'},
+        {text:'Replacement fee (≈₱200)'},
+      ],
+      process:[
+        {step:'Prepare a notarized Affidavit of Loss (if the card was lost or stolen)'},
+        {step:'Gather your supporting ID and damaged card (if any)'},
+        {step:'Visit the nearest PSA registration center or PSA branch'},
+        {step:'Fill out the replacement request form'},
+        {step:'Pay the ₱200 replacement fee'},
+        {step:'Wait for the replacement card to be delivered to your registered address'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Wrong or incomplete address at registration',desc:"Your card is mailed to the address you register. One wrong digit can send it to the wrong place. Double-check your barangay name, street, city, and zip code before confirming."},
+      {title:'Losing the Transaction Slip',desc:"The slip has your PhilSys Number, which you need to track your card. Once lost, it's difficult to retrieve. Take a photo of it immediately."},
+      {title:'Expecting the card on registration day',desc:"You only register on that day. The physical card is produced and mailed weeks to months later."},
+      {title:'Using expired proof of address',desc:"Utility bills must be recent — not older than 3 months. Get fresh documents before going."},
+    ],
+    officialLinks:[
+      {label:'PhilSys Official Website',url:'https://philsys.gov.ph',icon:'🌐'},
+      {label:'PSA Official Website',url:'https://psa.gov.ph',icon:'🏛️'},
+      {label:'PhilSys Card Tracking',url:'https://philsys.gov.ph/track',icon:'📦'},
+    ],
+  },
+
+  nbi:{
+    icon:'🔍',name:'NBI Clearance',agency:'National Bureau of Investigation (NBI)',
+    desc:"A certificate showing you have no pending criminal case in NBI records. Required for employment, travel, immigration applications, and many government and private transactions. Valid for 1 year.",
+    feeShort:'₱130 – ₱155',timeShort:'Same day (if no hit)',lastVerified:'March 2025',
+    eligibility:['Any Filipino citizen who needs a background check document','Foreigners residing in the Philippines','OFWs applying for overseas employment','18 years old and above (minors need a parent/guardian)'],
+    ageReq:"18 years old and above. Minors (below 18) must be accompanied by a parent or guardian who signs on their behalf.",
+    whatExpect:['If you have a common Filipino name, you might get a "hit" even without a criminal record','A "hit" does NOT mean you have a record — it means your name matched something in the database','Same-day release only happens if there is NO hit','NBI Clearance is valid for ONE YEAR — it expires','The clearance is printed on security paper. Do NOT fold it.','E-clearance (digital copy) is available for an extra ₱25'],
+    fees:[{label:'NBI Clearance fee',amount:'₱130'},{label:'E-clearance (digital copy)',amount:'+₱25'},{label:'Online payment convenience fee',amount:'₱15–₱25'}],
+    processingTimes:[{label:'No hit',value:'Same day (mins–2 hrs)'},{label:'With hit (review)',value:'5–15 working days'},{label:'Delivery option',value:'Add 2–5 days'}],
+    firstTime:{
+      requirements:[
+        {text:'Online registration at clearance.nbi.gov.ph',note:'Create an account, fill out the form, select branch and appointment date'},
+        {text:'1 valid government-issued photo ID (original)',note:'Passport, Driver\'s License, UMID, PhilSys ID, etc.'},
+        {text:'Official Receipt from confirmed payment',note:'Pay online (GCash, credit card) or at SM, 7-Eleven, Bayad Center, Cebuana, etc. BEFORE your appointment. Payment must be CONFIRMED — not pending.'},
+      ],
+      process:[
+        {step:'Go to clearance.nbi.gov.ph and create an account or log in'},
+        {step:'Fill out your personal information in the online application form'},
+        {step:'Select your preferred NBI branch and available appointment date/time'},
+        {step:'Pay the fee online or at an authorized payment center',tip:'Wait for FULL confirmation — not just "pending." A pending status means the system hasn\'t confirmed yet.'},
+        {step:'On appointment day: go to the branch with your valid ID and Official Receipt (printed or digital)'},
+        {step:'Present your ID and OR at the counter — staff processes your application'},
+        {step:'Photo and fingerprints will be taken at the branch'},
+        {step:'Wait for release. If NO hit: clearance issued within hours.'},
+        {step:'If there is a HIT: leave your contact details. Notify when cleared (5–15 working days). Track online too.'},
+      ],
+    },
+    renewal:{
+      note:"NBI Clearance has no traditional 'renewal' — it's valid for 1 year and expires. When you need a new one, you simply apply again following the exact same process. There are no shortcuts, reduced fees, or exemptions for returning applicants.",
+      requirements:[
+        {text:'Online registration at clearance.nbi.gov.ph',note:'Use your existing account — your info may be pre-filled from your last application'},
+        {text:'1 valid government-issued photo ID',note:'Same requirement as first time'},
+        {text:'Payment (same fee: ₱130)',note:'All fees are the same for every application'},
+      ],
+      process:[
+        {step:'Log in to clearance.nbi.gov.ph using your existing account'},
+        {step:'Start a new application — your personal information may already be saved'},
+        {step:'Select your preferred branch and a new appointment date'},
+        {step:'Pay the fee online or at a payment center'},
+        {step:'Go to the branch on appointment day with your ID and OR — same process as first time'},
+      ],
+    },
+    replacement:{
+      note:"NBI Clearance is a paper document, not a persistent ID card. It expires after 1 year, and if you lose it before then, there is no special 'replacement' — you simply apply for a new clearance following the same process. You pay the full fee again.",
+      requirements:[
+        {text:'Same as any NBI application',note:'Online registration, valid ID, confirmed payment'},
+      ],
+      process:[
+        {step:'Go to clearance.nbi.gov.ph and apply for a new clearance'},
+        {step:'Same process as first time — there is no special replacement procedure'},
+        {step:'The new clearance will have today\'s date as the issue date, valid for 1 year from issuance'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Going to the branch before payment is confirmed',desc:"Your OR must be CONFIRMED — not just pending. Arrive without a confirmed OR and you will be turned away. Wait for the confirmation email/SMS before going."},
+      {title:'Panicking over a "hit"',desc:"A hit doesn't mean you're a criminal — it just triggers a name-match review. Relax and cooperate with the process. Most 'hits' are cleared within the stated timeframe."},
+      {title:'Planning around same-day release when a hit is possible',desc:"If your clearance goes under review, it cannot be released the same day. Build in 2 weeks of buffer if you have a deadline like a job offer."},
+      {title:'Folding or wetting the clearance paper',desc:"NBI clearances are printed on security paper. Folds, tears, or moisture damage can make it look tampered with — some offices will refuse to accept it."},
+    ],
+    officialLinks:[
+      {label:'NBI Clearance Online System',url:'https://clearance.nbi.gov.ph',icon:'🌐'},
+      {label:'NBI Official Website',url:'https://www.nbi.gov.ph',icon:'🏛️'},
+    ],
+  },
+
+  license:{
+    icon:'🚗',name:"Driver's License",agency:'Land Transportation Office (LTO)',
+    desc:"The official authorization to drive motor vehicles in the Philippines. Also widely accepted as a valid government-issued photo ID for many transactions.",
+    feeShort:'₱317 – ₱652',timeShort:'Same day permit, 2–3 wks card',lastVerified:'March 2025',
+    eligibility:['Filipino citizens aged 17+ (Student Permit only)','Residents aged 18+ (Non-Professional and Professional License)','Resident aliens with a valid stay permit','17-year-olds need parental consent for Student Permit'],
+    ageReq:"17 years old for a Student Permit (with parental consent). 18 years old and above for Non-Professional and Professional Driver's License.",
+    whatExpect:["Getting a first license is a two-stage process: Student Permit → actual Driver's License","You will NOT receive the plastic card on the same day — you get a temporary paper license first","Medical certificate and drug test MUST be from LTO-ACCREDITED clinics — not just any clinic",'Expect long queues — arrive very early',"The practical driving exam is at LTO's official track, not public roads","License renewal is every 5 years. If expired more than 3 years ago, you may need to restart."],
+    fees:[{label:'Student Permit',amount:'≈₱317'},{label:'Non-Professional License',amount:'≈₱585'},{label:'Professional License',amount:'≈₱652'},{label:'Renewal (5-year)',amount:'≈₱585–₱652'},{label:'Replacement (lost/damaged)',amount:'≈₱317–₱585'}],
+    processingTimes:[{label:'Student Permit (exam day)',value:'Same day'},{label:'License card printing',value:'2–3 weeks'},{label:'Renewal card',value:'2–3 weeks'}],
+    firstTime:{
+      note:"Getting your first Driver's License is a two-stage process. First get a Student Permit. Then practice for at least 1 month before returning for your actual license.",
+      requirements:[
+        {text:'Medical Certificate from an LTO-ACCREDITED clinic',note:'Valid 60 days from issue date. MUST be from an LTO-accredited clinic. Check the LTO website for the list.'},
+        {text:'Drug Test result from an LTO-accredited testing center',note:'Valid 60 days. Same accreditation requirement.'},
+        {text:'Accomplished Application Form (TDL)',note:'Available at the LTO branch or downloadable at lto.gov.ph'},
+        {text:'At least 1 valid government-issued photo ID with address',note:'Passport, UMID, Voter\'s ID, PhilSys ID, etc.'},
+        {text:'For 17-year-olds: Parental consent + parent\'s valid ID',note:'Both parents signing is ideal'},
+        {text:'[For License stage] Your existing Student Permit',note:'Must not be expired (valid 1 year from issue)'},
+        {text:'[For License stage] Updated medical certificate and drug test',note:'Update if more than 60 days passed since SP application'},
+      ],
+      process:[
+        {step:'Find an LTO-accredited clinic for your medical exam and drug test',tip:'CRITICAL: Verify the clinic is on LTO\'s accredited list before going. Non-accredited = automatic rejection.'},
+        {step:'Go to your chosen LTO branch with all required documents'},
+        {step:'Submit documents and pay the Student Permit fee'},
+        {step:'Take the written theoretical exam — road rules, traffic signs, penalties, speed limits',tip:'Study the LTO Reviewer. Many free reviewers are on YouTube. You must pass to proceed.'},
+        {step:'Pass the exam → receive your Student Permit same day'},
+        {step:'Practice driving for at least 1 month under the supervision of a licensed driver'},
+        {step:'Return to LTO with updated medical cert, drug test, and your Student Permit'},
+        {step:"Take the practical driving exam at LTO's official driving track"},
+        {step:'Pass → pay fees → receive temporary paper license'},
+        {step:"Receive your plastic Driver's License card via mail in 2–3 weeks"},
+      ],
+    },
+    renewal:{
+      note:"Driver's License renewal is every 5 years. You can renew at any LTO branch nationwide — not just where you originally applied. If your license expired more than 3 years ago, check with LTO whether you need to restart the full process.",
+      requirements:[
+        {text:"Expiring or expired Driver's License",note:'If expired more than 3 years ago, check with LTO on your options'},
+        {text:'Medical Certificate from an LTO-accredited clinic',note:'Renewed every time — valid only 60 days from issue date'},
+        {text:'Drug Test from an LTO-accredited testing center',note:'Same accreditation requirement as the medical cert'},
+        {text:'Accomplished Renewal Form (TRL)',note:'Available at the LTO branch'},
+      ],
+      process:[
+        {step:'Get updated medical certificate and drug test from an LTO-accredited clinic',tip:'Check that your clinic is still on the accredited list — accreditation can expire.'},
+        {step:'Go to any LTO branch (renewal is not restricted to your original branch)'},
+        {step:'Fill out the renewal form (TRL) and submit with your requirements'},
+        {step:'Pay the renewal fee'},
+        {step:'Receive a temporary paper license — plastic card arrives via mail in 2–3 weeks'},
+      ],
+    },
+    replacement:{
+      note:"If your Driver's License was lost, stolen, or damaged, you can request a replacement at any LTO branch. No written or practical exam is required — but you still need updated medical and drug test results.",
+      requirements:[
+        {text:'Affidavit of Loss',note:'Required for lost or stolen license — must be notarized'},
+        {text:'Police blotter',note:'Recommended for lost or stolen card'},
+        {text:'Damaged license (if applicable)',note:'Surrender the damaged card at the LTO branch'},
+        {text:'Medical Certificate from an LTO-accredited clinic',note:'Required even for replacement'},
+        {text:'Drug Test from an LTO-accredited testing center',note:'Required even for replacement'},
+        {text:'Accomplished Application Form',note:'Available at the LTO branch'},
+      ],
+      process:[
+        {step:'Prepare your Affidavit of Loss and file a police blotter (if lost/stolen)'},
+        {step:'Get updated medical certificate and drug test from an LTO-accredited clinic'},
+        {step:'Go to any LTO branch with all documents'},
+        {step:'Submit the affidavit, damaged card (if any), medical cert, and drug test'},
+        {step:'Pay the replacement fee'},
+        {step:'Receive a temporary paper license — plastic replacement card mailed in 2–3 weeks'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Using a non-LTO-accredited clinic',desc:"This is the #1 reason for rejection. Staff check if your clinic is on the accredited list. Always verify BEFORE going to the clinic, not after."},
+      {title:'Expired medical certificate or drug test on appointment day',desc:"Both are valid only for 60 days. If they expire before your LTO visit, you'll need to redo them — at your own cost."},
+      {title:'Student Permit expired before applying for the actual license',desc:"Student Permits are valid for only 1 year. Wait too long and it expires — you'll need a new one."},
+      {title:'Expecting the plastic card on the same day',desc:"You only get a temporary paper license on the day. The actual plastic card is mailed separately and takes 2–3 weeks."},
+    ],
+    officialLinks:[
+      {label:'LTO Official Website',url:'https://lto.gov.ph',icon:'🌐'},
+      {label:'LTO Online Services (LTMS)',url:'https://ltms.lto.gov.ph',icon:'💻'},
+    ],
+  },
+
+  sss:{
+    icon:'💳',name:'SSS ID / UMID / MySSS Card',agency:'Social Security System (SSS)',
+    desc:"The official physical ID card for SSS members in the private sector. Commonly called the UMID card — it functions as a multi-purpose ID accepted across government and private transactions. New issuances are branded as the MySSS Card.",
+    feeShort:'FREE (₱200 replacement)',timeShort:'30–45 working days',lastVerified:'March 2025',
+    eligibility:['Active or voluntarily registered SSS members','At least 1 posted SSS contribution required before applying','Employed, self-employed, OFW, and voluntary members','Not for government employees — they use the GSIS eCard'],
+    ageReq:"Any SSS-registered member. No minimum age, but practical registration begins when you join the workforce.",
+    whatExpect:['Card is mailed to your registered mailing address — confirm it is correct before applying','SSS UMID is one of the most widely accepted valid IDs in the Philippines','As of 2024–2025, SSS is rolling out updated card formats under the MySSS Card brand','The UMID also functions as a cash card for SSS loan proceeds and benefit disbursements','Processing times can be long — track your application through My.SSS'],
+    fees:[{label:'First-time issuance',amount:'FREE'},{label:'Replacement (lost or damaged)',amount:'₱200'}],
+    processingTimes:[{label:'Application to card delivery',value:'30–45 working days'},{label:'Application processing',value:'1–5 working days'}],
+    firstTime:{
+      note:"You must have at least 1 posted SSS contribution before you can apply for the UMID/MySSS Card. Check your contribution history in My.SSS first.",
+      requirements:[
+        {text:'SSS Number',note:'If you don\'t have one yet, register at my.sss.gov.ph first'},
+        {text:'At least 1 posted SSS contribution',note:'Check contribution history through My.SSS before going to the branch'},
+        {text:'2 valid government-issued IDs (original + photocopy)',note:'Passport, Driver\'s License, Voter\'s ID, PhilSys ID, PRC ID, etc.'},
+        {text:'Accomplished UMID Enrollment Form',note:'Available at SSS branches or downloadable from sss.gov.ph'},
+      ],
+      process:[
+        {step:'Log in to My.SSS at my.sss.gov.ph to confirm you have at least 1 posted contribution',tip:'Note the difference between "remitted" and "posted" — payment may take days to reflect in the system.'},
+        {step:'Download and accomplish the UMID Enrollment Form, or get one at the branch'},
+        {step:'Go to any SSS branch nearest your residence or workplace'},
+        {step:'Submit the form and present your 2 valid IDs at the UMID counter'},
+        {step:'Biometrics captured on-site: photo, all 10 fingerprints, and signature'},
+        {step:'Receive your application stub with a reference number for tracking'},
+        {step:'Wait 30–45 working days. The card is delivered to your registered mailing address.'},
+      ],
+    },
+    renewal:{
+      note:"The SSS UMID/MySSS Card does not have a traditional expiry for the ID function. You need to update your card only if your personal details changed (name, civil status) or if your card's ATM chip function has expired. For address updates only, use My.SSS online.",
+      requirements:[
+        {text:'Old SSS UMID card (if still in your possession)',note:'Surrender the old card at the branch'},
+        {text:'2 valid government-issued IDs',note:'Same as first-time application'},
+        {text:'Supporting document for the detail change',note:'E.g., PSA Marriage Certificate for name change'},
+      ],
+      process:[
+        {step:'For online-eligible updates (address), go to my.sss.gov.ph and update your contact info directly'},
+        {step:'For name or civil status changes, go to any SSS branch with your old card, 2 valid IDs, and supporting documents'},
+        {step:'Fill out the UMID Enrollment/Update Form'},
+        {step:'Submit documents and have biometrics re-captured if required'},
+        {step:'Wait for the updated card to be delivered to your registered address (same 30–45 working days)'},
+      ],
+    },
+    replacement:{
+      note:"If your SSS UMID/MySSS Card was lost, stolen, or damaged, request a replacement at any SSS branch. A ₱200 replacement fee applies.",
+      requirements:[
+        {text:'Accomplished UMID Replacement Form',note:'Available at SSS branches'},
+        {text:'Affidavit of Loss',note:'Required for lost or stolen card — must be notarized'},
+        {text:'Police blotter',note:'Strongly recommended for lost or stolen card'},
+        {text:'Damaged card (if applicable)',note:'Bring for surrender'},
+        {text:'2 valid government-issued IDs'},
+      ],
+      process:[
+        {step:'Prepare a notarized Affidavit of Loss and file a police blotter (for lost/stolen card)',tip:'Report loss immediately to prevent misuse of the UMID\'s cash card function.'},
+        {step:'Go to any SSS branch with your IDs and the accomplished replacement form'},
+        {step:'Submit the form, affidavit, and 2 valid IDs'},
+        {step:'Pay the ₱200 replacement fee at the cashier'},
+        {step:'Biometrics re-captured on-site'},
+        {step:'Wait for the replacement card to be delivered (same 30–45 working days)'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Applying before contributions are posted',desc:"SSS requires at least 1 posted contribution. 'Remitted' and 'posted' are different — payment can take days to reflect. Always check My.SSS before going to the branch."},
+      {title:'Wrong mailing address on file',desc:"The card is physically delivered by mail. If your address in SSS records is outdated, your card goes to the wrong place. Update it at My.SSS before applying."},
+      {title:'Confusing SSS UMID with GSIS eCard',desc:"Both are UMID cards but for different sectors. GSIS eCard is for government employees. If you're in the private sector or self-employed, you apply through SSS."},
+    ],
+    officialLinks:[
+      {label:'My.SSS Portal',url:'https://my.sss.gov.ph',icon:'🌐'},
+      {label:'SSS Official Website',url:'https://www.sss.gov.ph',icon:'🏛️'},
+    ],
+  },
+
+  postal:{
+    icon:'📬',name:'Postal ID',agency:'Philippine Postal Corporation (PHLPost)',
+    desc:"One of the easiest and most accessible government-issued IDs to obtain. Accepted as a valid primary ID by most banks, government agencies, and private companies. Particularly useful as a starter ID for those who don't yet have other government IDs.",
+    feeShort:'≈₱504',timeShort:'10–15 working days',lastVerified:'March 2025',
+    eligibility:['All Filipino citizens','Resident foreign nationals','Both employed and unemployed individuals','Students — practical age is 18 and above'],
+    ageReq:"Generally 18 years old. Minors may apply with parental assistance at most PHLPost offices.",
+    whatExpect:['One of the simplest government IDs to get — no appointment needed at most offices','The card is valid for 3 years and includes a photo','PHLPost captures biometrics on-site (photo, signature, fingerprints)','Card is NOT issued the same day — available for pick-up in 10–15 working days','Claim the card at the same branch where you applied'],
+    fees:[{label:'Application and issuance fee',amount:'≈₱504'},{label:'Replacement (lost/damaged)',amount:'≈₱650'}],
+    processingTimes:[{label:'Biometrics (application day)',value:'30 min – 1 hour'},{label:'Card ready for pickup',value:'10–15 working days'}],
+    firstTime:{
+      requirements:[
+        {text:'PSA Birth Certificate (original + photocopy)',note:'OR any existing government-issued ID if you already have one'},
+        {text:'Proof of address (original + photocopy)',note:'Utility bill not older than 3 months, barangay certificate, or lease contract'},
+        {text:'Application fee (≈₱504)',note:'Paid at the PHLPost office'},
+        {text:'Recent ID photo (1x1 or 2x2, white background)',note:'Some offices capture your photo on-site'},
+      ],
+      process:[
+        {step:'Find your nearest PHLPost (post office) branch at phlpost.gov.ph'},
+        {step:'Go to the branch with your documents — no appointment needed at most offices'},
+        {step:'Fill out the Postal ID application form at the branch'},
+        {step:'Present your documents to the counter staff'},
+        {step:'Have your biometrics captured: photo, fingerprints, and signature',tip:'Dress neatly for the photo — it will appear on your card for 3 years.'},
+        {step:'Pay the application fee (≈₱504)'},
+        {step:'Receive your acknowledgment slip with a claim date (10–15 working days)'},
+        {step:'Return to the same branch on the claim date to pick up your Postal ID'},
+      ],
+    },
+    renewal:{
+      note:"Postal ID is valid for 3 years. Renewal follows the same process as a first-time application — you go to a PHLPost branch, pay the fee, and have your biometrics re-captured.",
+      requirements:[
+        {text:'Old/expiring Postal ID (original)',note:'Bring for surrender at the branch'},
+        {text:'Updated proof of address',note:'Required if your address has changed'},
+        {text:'Renewal fee (≈₱504)',note:'Same fee as first time'},
+      ],
+      process:[
+        {step:'Go to any PHLPost branch with your expiring Postal ID and updated proof of address'},
+        {step:'Inform the counter that you are renewing and fill out the renewal form'},
+        {step:'Submit your old card and documents'},
+        {step:'Have your biometrics re-captured: photo, fingerprints, signature'},
+        {step:'Pay the renewal fee (≈₱504)'},
+        {step:'Pick up your new Postal ID after 10–15 working days'},
+      ],
+    },
+    replacement:{
+      note:"If your Postal ID is lost, stolen, or damaged, request a replacement at any PHLPost branch. The replacement fee is slightly higher than the initial fee.",
+      requirements:[
+        {text:'Affidavit of Loss (for lost/stolen card)',note:'Must be notarized'},
+        {text:'Damaged card (if applicable)',note:'Bring for surrender'},
+        {text:'At least 1 other valid ID for identity verification'},
+        {text:'Updated proof of address',note:'Utility bill, barangay cert'},
+        {text:'Replacement fee (≈₱650)'},
+      ],
+      process:[
+        {step:'Prepare and notarize your Affidavit of Loss (if the card was lost or stolen)'},
+        {step:'Go to a PHLPost branch with your valid ID, proof of address, and affidavit'},
+        {step:'Surrender the damaged card if you have it'},
+        {step:'Fill out the replacement application form'},
+        {step:'Have your biometrics re-captured'},
+        {step:'Pay the replacement fee (≈₱650)'},
+        {step:'Pick up the replacement Postal ID after 10–15 working days'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Using expired proof of address',desc:"Utility bills must be recent — not older than 3 months. An expired barangay certificate also won't be accepted. Get fresh documents before going to PHLPost."},
+      {title:'Expecting the card on the same day',desc:"Postal ID is NOT issued on application day. It takes 10–15 working days. Don't book any bank visits or government transactions requiring the card before it's ready."},
+      {title:'Going to the wrong branch to claim',desc:"You typically need to claim your card at the same branch where you applied. Confirm this when you submit your application."},
+    ],
+    officialLinks:[
+      {label:'PHLPost Official Website',url:'https://phlpost.gov.ph',icon:'🌐'},
+    ],
+  },
+
+  voter:{
+    icon:'🗳️',name:'Voter Certification (COMELEC)',agency:'Commission on Elections (COMELEC)',
+    desc:"⚠️ COMELEC no longer issues new physical Voter's ID cards. Registered voters instead request a Voter Certification — an official printed document confirming registration status and precinct details. This is the current standard document for proving voter status.",
+    feeShort:'₱75 per copy',timeShort:'Same day',lastVerified:'March 2025',
+    eligibility:['Registered voters (on the COMELEC voter registry)','Must have completed full voter registration at COMELEC','Registration is open to Filipino citizens who will be 18 by election day'],
+    ageReq:"18 years old and above to vote. Registration is open to those who will be at least 18 on election day.",
+    whatExpect:['The physical Voter\'s ID card is NO LONGER being issued for new applicants as of the early 2020s','If you have an old card from 2010–2019, it may still be accepted as ID but COMELEC will not produce a new one','Voter Certification (₱75) confirms your name, address, and precinct number','Many banks, companies, and agencies accept a Voter Certification as a valid supporting document','The COMELEC eVoter App shows your voter info digitally for free','Voter registration periods open and close — check comelec.gov.ph for current schedule'],
+    fees:[{label:'Voter Certification (printed)',amount:'₱75 per copy'},{label:'Online voter inquiry',amount:'FREE'},{label:'eVoter App',amount:'FREE'}],
+    processingTimes:[{label:'Voter Certification at COMELEC office',value:'Same day'},{label:'Online voter verification',value:'Instant'}],
+    firstTime:{
+      note:"This section covers registering as a voter for the first time. Voter registration is only open during specific periods (usually before elections). Check comelec.gov.ph for the current registration schedule.",
+      requirements:[
+        {text:'Valid government-issued ID or combination of supporting documents',note:'PSA Birth Certificate, PhilSys ID, Passport, Driver\'s License, or similar'},
+        {text:'Proof of residence (if required)',note:'Utility bill or barangay certificate showing your current address'},
+        {text:'Accomplished Voter Registration Form (CEF-1)',note:'Available at COMELEC offices or downloadable from comelec.gov.ph'},
+      ],
+      process:[
+        {step:'Check that voter registration is currently open at comelec.gov.ph',tip:'COMELEC only accepts registrations during specific open periods. Going outside these windows will result in being turned away.'},
+        {step:'Go to your local COMELEC office (city or municipality level)'},
+        {step:'Fill out the Voter Registration Form (CEF-1) with your complete, accurate details'},
+        {step:'Submit the form with your valid IDs and proof of residence'},
+        {step:'Have your biometrics captured: photo, fingerprints, and signature'},
+        {step:'Receive an acknowledgment receipt — keep this safe'},
+        {step:'After registration is approved and included in the voter list, you can request a Voter Certification at your COMELEC office (₱75) as an official document'},
+      ],
+    },
+    renewal:{
+      note:"Voter registration doesn't have a traditional 'renewal.' However, you need to update your registration if you moved to a different city/municipality (Transfer of Registration) or need to correct details in your record (Update of Registration).",
+      requirements:[
+        {text:'Valid ID',note:'Same requirements as first-time registration'},
+        {text:'Proof of new residence (for transfer)',note:'Required only if you are changing your registered address'},
+      ],
+      process:[
+        {step:'Go to the COMELEC office in your NEW city/municipality during an open registration period'},
+        {step:'Fill out the appropriate form — Transfer of Registration or Update of Registration'},
+        {step:'Submit the form with your valid IDs and proof of new address'},
+        {step:'Have biometrics updated if required'},
+        {step:'Receive acknowledgment and wait for the update to reflect in the voter list'},
+      ],
+    },
+    replacement:{
+      note:"If you have an old physical Voter's ID card, COMELEC no longer issues physical replacements. Instead, request a Voter Certification (₱75) from your COMELEC office — this serves the same function for most transactions. For digital access to your voter info, use the eVoter App.",
+      requirements:[
+        {text:'Valid government-issued ID',note:'For identity verification at the COMELEC office'},
+      ],
+      process:[
+        {step:'Go to your local COMELEC office (city or municipality level)'},
+        {step:'Request a Voter Certification at the window and present your valid ID'},
+        {step:'Pay the ₱75 fee'},
+        {step:'Receive the Voter Certification — issued same day at most offices'},
+        {step:'Alternatively, download the eVoter App for digital access to your voter information at no cost'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Trying to get a physical Voter\'s ID card',desc:"COMELEC has stopped issuing physical Voter's ID cards to new applicants. Don't waste time looking for this. Request a Voter Certification instead — it serves the same purpose for most transactions."},
+      {title:'Registering outside registration periods',desc:"COMELEC only accepts voter registrations during specific open periods. Going to the COMELEC office outside these windows means being turned away."},
+      {title:'Not updating registration after moving',desc:"If you moved to a different city or municipality and still have your old registration, you will be assigned to your old precinct. Transfer your registration if you want to vote where you currently live."},
+    ],
+    officialLinks:[
+      {label:'COMELEC Official Website',url:'https://comelec.gov.ph',icon:'🌐'},
+      {label:'COMELEC Voter Registry Check',url:'https://voterverify.comelec.gov.ph',icon:'🔍'},
+    ],
+  },
+
+  philhealth:{
+    icon:'🏥',name:'PhilHealth ID Card',agency:'Philippine Health Insurance Corporation (PhilHealth)',
+    desc:"PhilHealth membership card issued to registered members. Primarily used to identify yourself as a PhilHealth member when accessing medical benefits and filing claims. Accepted as a supporting government-issued ID.",
+    feeShort:'FREE',timeShort:'2–4 weeks',lastVerified:'March 2025',
+    eligibility:['Registered PhilHealth members (employed, self-employed, OFWs, indigents, lifetime members)','Dependents are covered under a member\'s account but may not receive a separate physical card'],
+    ageReq:"Any PhilHealth member. No minimum age.",
+    whatExpect:['The PhilHealth Number (MDR/MRN) is what matters for transactions — the physical card is secondary','For most medical transactions, simply knowing your PhilHealth Number is sufficient','Not all PhilHealth offices regularly issue physical cards — availability varies by branch','Employers are responsible for remitting PhilHealth contributions — confirm yours are being paid','Check your contribution history and records online at philhealth.gov.ph'],
+    fees:[{label:'PhilHealth ID card',amount:'FREE'},{label:'Monthly contributions',amount:'Varies (% of monthly basic salary)'}],
+    processingTimes:[{label:'Membership registration',value:'Same day'},{label:'Physical card issuance',value:'2–4 weeks (varies by office)'}],
+    firstTime:{
+      note:"To get a PhilHealth ID, you first need a PhilHealth Number. Employed workers are automatically registered by their employer. Self-employed, OFWs, and voluntary members register directly at PhilHealth.",
+      requirements:[
+        {text:'PhilHealth Member Registration Form (PMRF)',note:'Fill out at the PhilHealth office or download from philhealth.gov.ph'},
+        {text:'Valid government-issued ID (at least 1)',note:'For identity verification'},
+        {text:'1x1 or 2x2 ID photo (recent, white background)'},
+        {text:'Proof of employment or business registration (for self-employed)',note:'Certificate of employment, business registration, etc.'},
+      ],
+      process:[
+        {step:'Determine your PhilHealth membership category: employed (via employer), self-employed, OFW, or voluntary'},
+        {step:'For employed members: check with HR/payroll first — you may already be registered',tip:'Employers are legally required to register all employees with PhilHealth and remit contributions.'},
+        {step:'For self-employed or voluntary members: go to the nearest PhilHealth office and fill out the PMRF'},
+        {step:'Submit the PMRF with your valid IDs and photos'},
+        {step:'Receive your PhilHealth Number (MDR/MRN) — use this for all medical transactions'},
+        {step:'Request a physical PhilHealth ID card at the same office (availability varies)'},
+        {step:'Receive or pick up the card in 2–4 weeks'},
+      ],
+    },
+    renewal:{
+      note:"PhilHealth membership doesn't have a traditional card renewal. Your membership continues as long as you keep paying contributions. Request a new card if yours is outdated, has incorrect details, or if your membership category changed.",
+      requirements:[
+        {text:'Old PhilHealth ID card (if available)',note:'Surrender at the office'},
+        {text:'Valid government-issued IDs',note:'For identity verification'},
+        {text:'Supporting document for detail change',note:'E.g., Marriage Certificate for name change'},
+      ],
+      process:[
+        {step:'Go to the nearest PhilHealth office'},
+        {step:'Request an updated membership record or new ID card'},
+        {step:'Present your old card, valid IDs, and supporting documents'},
+        {step:'Fill out any required update forms'},
+        {step:'Receive or wait for the new card (2–4 weeks)'},
+      ],
+    },
+    replacement:{
+      note:"For a lost or damaged PhilHealth ID card, request a replacement at any PhilHealth office. The card itself is free.",
+      requirements:[
+        {text:'Affidavit of Loss (for lost card)',note:'May be required depending on the office'},
+        {text:'Damaged card (if applicable)',note:'Surrender the damaged card'},
+        {text:'Valid government-issued IDs (at least 1)'},
+      ],
+      process:[
+        {step:'Go to the nearest PhilHealth office'},
+        {step:'Inform staff the card was lost or damaged and request a replacement'},
+        {step:'Present your valid ID and affidavit of loss if required'},
+        {step:'Fill out the replacement request form'},
+        {step:'Wait for the new card (2–4 weeks)'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Confusing the PhilHealth Number with the physical card',desc:"Your PhilHealth Number (MRN/MDR) is what hospitals and clinics need — not the physical card. Know your number even if you don't have the card handy."},
+      {title:'Not checking if employer contributions are actually being remitted',desc:"Your employer may be deducting contributions from your salary but not remitting them to PhilHealth. Check your contribution history at philhealth.gov.ph to confirm you\'re actually covered."},
+    ],
+    officialLinks:[
+      {label:'PhilHealth Official Website',url:'https://philhealth.gov.ph',icon:'🌐'},
+      {label:'PhilHealth Member Portal',url:'https://memberinquiry.philhealth.gov.ph',icon:'💻'},
+    ],
+  },
+
+  gsis:{
+    icon:'🏛️',name:'GSIS eCard',agency:'Government Service Insurance System (GSIS)',
+    desc:"The official ID and cash card for government employees and pensioners covered by GSIS. Also functions as a UMID card for the government sector. Required for accessing GSIS services, loans, and benefits.",
+    feeShort:'FREE',timeShort:'2–4 weeks',lastVerified:'March 2025',
+    eligibility:['Active government employees (national and local government)','Government retirees and pensioners','Survivors of GSIS members receiving benefits','Not available to private sector workers — they use SSS UMID instead'],
+    ageReq:"Any government employee or pensioner. No minimum age.",
+    whatExpect:['The GSIS eCard functions as a UMID for government workers','It also serves as a cash card for GSIS benefit and loan disbursements','Biometrics are captured at a GSIS enrollment center','Card production and delivery takes 2–4 weeks','Enrollment can be done at your agency\'s GSIS liaison or at a GSIS branch'],
+    fees:[{label:'First-time issuance',amount:'FREE'},{label:'Replacement (lost/damaged)',amount:'≈₱200'}],
+    processingTimes:[{label:'Enrollment processing',value:'1–3 working days'},{label:'Card delivery',value:'2–4 weeks'}],
+    firstTime:{
+      requirements:[
+        {text:'Government employee ID or proof of government employment',note:'Agency ID, appointment paper, or service record'},
+        {text:'GSIS membership number',note:'Check with your HR or agency payroll if you don\'t have it'},
+        {text:'2 valid IDs (original + photocopy)',note:'Any government-issued ID'},
+        {text:'Accomplished GSIS eCard application/enrollment form',note:'Available at GSIS offices or through your agency HR'},
+      ],
+      process:[
+        {step:'Verify your GSIS number with your HR or agency payroll department'},
+        {step:'Accomplish the GSIS eCard enrollment form'},
+        {step:'Go to the nearest GSIS branch or GSIS kiosk in your agency'},
+        {step:'Present your valid IDs and employment proof at the counter'},
+        {step:'Biometrics captured: photo, fingerprints, and signature'},
+        {step:'Receive your claim stub / acknowledgment receipt with a reference number'},
+        {step:'Card delivered to your agency or registered address in 2–4 weeks'},
+      ],
+    },
+    renewal:{
+      note:"The GSIS eCard does not have a traditional ID expiry. If the ATM/payment chip has expired (typically every 5 years for the financial function) or your personal details have changed, request an update at any GSIS branch.",
+      requirements:[
+        {text:'Old GSIS eCard',note:'Bring for surrender'},
+        {text:'Valid government-issued IDs'},
+        {text:'Supporting document for detail change (if applicable)'},
+      ],
+      process:[
+        {step:'Go to the nearest GSIS branch'},
+        {step:'Present your old eCard and valid IDs'},
+        {step:'Request a card update and fill out the necessary form'},
+        {step:'Undergo biometrics re-capture if required'},
+        {step:'Wait for the updated card (2–4 weeks)'},
+      ],
+    },
+    replacement:{
+      note:"If your GSIS eCard is lost, stolen, or damaged, request a replacement at any GSIS branch. A ₱200 fee may apply. Report loss immediately to prevent unauthorized use of the card's cash function.",
+      requirements:[
+        {text:'Affidavit of Loss (for lost card)',note:'Notarized — required'},
+        {text:'Police blotter',note:'Recommended especially if the card was stolen'},
+        {text:'Damaged card (if applicable)',note:'Surrender the damaged card'},
+        {text:'Valid ID (at least 1 other)'},
+      ],
+      process:[
+        {step:'Report loss immediately — the GSIS eCard has a cash card function that can be misused',tip:'Call GSIS to have the card\'s cash card function suspended while you process the replacement.'},
+        {step:'Prepare and notarize your Affidavit of Loss'},
+        {step:'Go to any GSIS branch with your affidavit, valid ID, and damaged card (if any)'},
+        {step:'Pay the ≈₱200 replacement fee'},
+        {step:'Undergo biometrics re-capture'},
+        {step:'Wait for the replacement eCard (2–4 weeks)'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Applying at SSS instead of GSIS',desc:"Government employees are covered by GSIS, not SSS. If you work for the national or local government, your agency is GSIS."},
+      {title:'Not enrolling the eCard for GSIS benefits and loans',desc:"The eCard unlocks access to GSIS loans and benefit disbursements. Visit a GSIS branch to fully set up the card's financial functions if you haven't already."},
+      {title:'Treating the eCard carelessly',desc:"It also functions as a cash card — protect it like a bank ATM card. Report loss immediately to prevent unauthorized transactions."},
+    ],
+    officialLinks:[
+      {label:'GSIS Official Website',url:'https://www.gsis.gov.ph',icon:'🌐'},
+      {label:'GSIS Member Portal (GWAP)',url:'https://gwap.gsis.gov.ph',icon:'💻'},
+    ],
+  },
+
+  prc:{
+    icon:'🎓',name:'PRC ID',agency:'Professional Regulation Commission (PRC)',
+    desc:"The Professional Identification Card issued to licensed professionals (doctors, nurses, engineers, architects, accountants, and others) who have passed the relevant board examination. Functions as both proof of professional license and a valid government-issued photo ID.",
+    feeShort:'Part of license fees',timeShort:'3–5 days (initial)',lastVerified:'March 2025',
+    eligibility:['Board exam passers of PRC-regulated professions','Licensed professionals renewing their PRC license','Only available to those who passed a PRC-administered board exam'],
+    ageReq:"No minimum age, but board exams require completion of a relevant degree program first.",
+    whatExpect:['The PRC ID IS the professional license card — you do not apply for them separately','The card shows your name, profession, license number, and validity dates','PRC licenses must be renewed every 3 years via CPD (Continuing Professional Development)','PRC has an online appointment and renewal system at prc.gov.ph','Walk-ins are rarely accommodated at most PRC offices'],
+    fees:[{label:'Initial registration (new board passer)',amount:'₱300–₱560 (varies by profession)'},{label:'License renewal (every 3 years)',amount:'₱450–₱600 (varies by profession)'}],
+    processingTimes:[{label:'Initial card release',value:'3–5 working days'},{label:'Renewal processing',value:'2–3 weeks'},{label:'Replacement',value:'2–3 weeks'}],
+    firstTime:{
+      note:"PRC registration happens as part of the board examination process. After passing, you are guided through initial registration to get your license card.",
+      requirements:[
+        {text:'Online appointment at prc.gov.ph',note:'Required for initial registration'},
+        {text:'PSA Birth Certificate (original + photocopy)'},
+        {text:'PSA Marriage Certificate (for married women applying under married name)'},
+        {text:'Certificate of Good Moral Character',note:'Usually from your school or a reputable source'},
+        {text:'Official Transcript of Records',note:'From your school — must be official and authenticated'},
+        {text:'Passport-size photos (recent, white background)',note:'Number varies by profession'},
+        {text:'Registration fee',note:'Varies by profession — check prc.gov.ph'},
+      ],
+      process:[
+        {step:'After passing your board exam, go to prc.gov.ph and log in or create an account'},
+        {step:'Book an appointment at a PRC office for initial registration'},
+        {step:'Prepare all required documents for your specific profession'},
+        {step:'Go to the PRC office on your appointment date with complete documents'},
+        {step:'Submit documents at the initial registration counter'},
+        {step:'Pay the registration fee at the cashier'},
+        {step:'Receive your Professional Identification Card — timing varies by office'},
+      ],
+    },
+    renewal:{
+      note:"PRC IDs are renewed every 3 years. You must complete the required CPD (Continuing Professional Development) units for your profession before renewal.",
+      requirements:[
+        {text:'CPD Certificate with required units',note:'Required CPD units vary by profession. Only PRC-accredited providers count.'},
+        {text:'Expiring or expired PRC ID (original)',note:'You can renew up to 3 months before expiry'},
+        {text:'Renewal appointment from prc.gov.ph',note:'Required — walk-ins rarely accommodated'},
+        {text:'Renewal fee',note:'Varies by profession'},
+      ],
+      process:[
+        {step:'Complete the required CPD units for your profession — mandatory before renewal',tip:'PRC has an accredited CPD provider list. Only units from accredited providers count toward renewal.'},
+        {step:'Go to prc.gov.ph and book a renewal appointment'},
+        {step:'Prepare your CPD certificate, current PRC ID, and required documents'},
+        {step:'Go to the PRC office on your appointment date'},
+        {step:'Submit your renewal requirements and pay the renewal fee'},
+        {step:'Receive your updated PRC ID (new 3-year expiry date)'},
+      ],
+    },
+    replacement:{
+      note:"If your PRC ID is lost or damaged, you can request a replacement. The replacement process is separate from the renewal cycle and does not require CPD documents.",
+      requirements:[
+        {text:'Affidavit of Loss (for lost card)',note:'Notarized affidavit of loss is required'},
+        {text:'Damaged card (if applicable)',note:'Surrender at the office'},
+        {text:'PRC appointment from prc.gov.ph'},
+        {text:'Replacement fee',note:'Check prc.gov.ph for current schedule'},
+        {text:'1 valid government-issued ID for identity verification'},
+      ],
+      process:[
+        {step:'Prepare a notarized Affidavit of Loss (if the card was lost or stolen)'},
+        {step:'Book an appointment at prc.gov.ph under the replacement/re-issuance option'},
+        {step:'Go to the PRC office on your appointment date'},
+        {step:'Submit the affidavit, damaged card (if any), and valid ID'},
+        {step:'Pay the replacement fee'},
+        {step:'Receive or wait for the replacement PRC ID (2–3 weeks)'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Missing CPD requirements before renewal',desc:"You cannot renew your PRC license without the required CPD units. Not all CPD providers are PRC-accredited — verify the provider at prc.gov.ph before enrolling in any CPD program."},
+      {title:'Letting the license expire with no CPD completed',desc:"If your license expires before completing CPD, the renewal process becomes more complex. Track your expiry date and start CPD units early."},
+      {title:'Not booking an appointment online first',desc:"PRC relies heavily on its online appointment system. Attempting to walk in without a booking typically leads to being turned away."},
+    ],
+    officialLinks:[
+      {label:'PRC Online Services',url:'https://online.prc.gov.ph',icon:'💻'},
+      {label:'PRC Official Website',url:'https://prc.gov.ph',icon:'🌐'},
+      {label:'CPD Accredited Providers',url:'https://cpdh.prc.gov.ph',icon:'📚'},
+    ],
+  },
+
+  senior:{
+    icon:'👴',name:'Senior Citizen ID (OSCA)',agency:'Office for Senior Citizens Affairs (OSCA) / LGU',
+    desc:"Issued by local government units through the OSCA. Entitles Filipino senior citizens to discounts, privileges, and social benefits under the Expanded Senior Citizens Act (RA 9994). Also functions as a valid government-issued ID.",
+    feeShort:'FREE',timeShort:'Same day to 1 week',lastVerified:'March 2025',
+    eligibility:['Filipino citizens aged 60 years and above','Must reside in the city/municipality where applying','Some LGUs also accommodate resident foreign nationals aged 60+'],
+    ageReq:"60 years old and above.",
+    whatExpect:['Senior Citizen ID entitles holder to 20% discount + VAT exemption on many goods and services','The card is issued FREE — do not pay for it under any circumstances','Issued at the city or municipal OSCA office — not at any national agency','Processing time varies: same day at many offices, up to 1 week at others','The card is effectively for lifetime use — no regular renewal required'],
+    fees:[{label:'OSCA registration and ID issuance',amount:'FREE'}],
+    processingTimes:[{label:'Typical processing',value:'Same day to 1 week'},{label:'Varies by LGU',value:'Depends on city/municipality'}],
+    firstTime:{
+      requirements:[
+        {text:'PSA Birth Certificate',note:'Required to prove age (60 years or above)'},
+        {text:'1 valid government-issued photo ID',note:'Passport, Driver\'s License, PhilSys ID, etc.'},
+        {text:'Proof of residence in the city/municipality',note:'Barangay certificate, utility bill, or barangay ID showing your current address'},
+        {text:'1x1 or 2x2 ID photo (recent)',note:'Some OSCA offices take your photo on-site'},
+        {text:'Accomplished OSCA registration form',note:'Available at the OSCA office'},
+      ],
+      process:[
+        {step:'Go to the OSCA office in your city or municipality',tip:'The OSCA is usually located in or near the City/Municipal Hall. Call ahead to confirm location and exact requirements.'},
+        {step:'Bring your PSA Birth Certificate, valid ID, and proof of residence'},
+        {step:'Fill out the OSCA registration form'},
+        {step:'Submit your documents and photos to the staff'},
+        {step:'Receive your Senior Citizen ID — same day to 1 week depending on the LGU'},
+      ],
+    },
+    renewal:{
+      note:"The Senior Citizen ID is generally issued for lifetime use and does not require formal renewal. Some LGUs periodically re-issue new card formats. If your card is outdated or has incorrect details, simply go to your OSCA office for a replacement — free of charge.",
+      requirements:[
+        {text:'Old Senior Citizen ID',note:'Bring for reference or surrender'},
+        {text:'Valid government-issued ID',note:'For identity verification'},
+      ],
+      process:[
+        {step:'Go to your OSCA office with your old card and valid ID'},
+        {step:'Request an updated card'},
+        {step:'Submit your old card and have a new photo taken if needed'},
+        {step:'Receive the updated card (free of charge)'},
+      ],
+    },
+    replacement:{
+      note:"If your Senior Citizen ID is lost or damaged, request a replacement at your OSCA office. It remains free of charge.",
+      requirements:[
+        {text:'Affidavit of Loss (if lost)',note:'Recommended to prevent misuse of the card\'s discount privileges'},
+        {text:'Damaged card (if applicable)',note:'Surrender the damaged card'},
+        {text:'Any other valid ID or PSA Birth Certificate for identity confirmation'},
+      ],
+      process:[
+        {step:'Go to your OSCA office with your other valid IDs'},
+        {step:'Inform staff that your card was lost or damaged and request a replacement'},
+        {step:'Submit the required documents (affidavit, damaged card)'},
+        {step:'Receive the replacement card — free of charge'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Going to the wrong office',desc:"The Senior Citizen ID is issued at your LOCAL OSCA office (city or municipal level) — not at PSA, DSWD, or any national agency."},
+      {title:'Not knowing the privileges the card unlocks',desc:"The card entitles you to 20% discount and VAT exemption on medicine, medical services, transportation, restaurants, recreation, and more. Know your rights under RA 9994."},
+      {title:'Paying for the card',desc:"Senior Citizen ID is issued FREE by law. If anyone charges you for it, report this to your LGU or DSWD."},
+      {title:'Not registering as soon as you turn 60',desc:"Register as soon as you reach 60. There is no waiting period. The sooner you register, the sooner you can access your privileges."},
+    ],
+    officialLinks:[
+      {label:'DSWD Senior Citizens Page',url:'https://www.dswd.gov.ph',icon:'🌐'},
+      {label:'RA 9994 – Expanded Senior Citizens Act',url:'https://www.officialgazette.gov.ph/2010/02/15/republic-act-no-9994/',icon:'📋'},
+    ],
+  },
+
+  tin:{
+    icon:'💼',name:'TIN ID (BIR)',agency:'Bureau of Internal Revenue (BIR)',
+    desc:"The Tax Identification Number (TIN) ID card issued by the BIR to registered taxpayers. Functions as proof of TIN assignment and a government-issued supporting ID. Every Filipino with income is required by law to have a TIN.",
+    feeShort:'FREE',timeShort:'Same day (TIN); days to weeks (card)',lastVerified:'March 2025',
+    eligibility:['Employed individuals (typically registered by employer)','Self-employed persons and professionals','Persons with one-time tax transactions (selling property, etc.)','Every Filipino with taxable income is legally required to have a TIN'],
+    ageReq:"No minimum age. Anyone with taxable income or a transaction requiring a TIN needs one.",
+    whatExpect:['CRITICAL: You can only ever have ONE TIN. Having duplicate TINs is illegal and punishable.','Employed individuals are typically registered by their employer — check with HR before self-registering','The physical TIN ID card is separate from just having a TIN number. The card requires a specific request at the RDO.','For most official transactions, knowing your TIN number is sufficient. The card is a bonus.','BIR is transitioning to eCards (plastic) but availability varies widely by RDO'],
+    fees:[{label:'TIN registration',amount:'FREE'},{label:'TIN ID card issuance',amount:'FREE (at RDO)'}],
+    processingTimes:[{label:'TIN issuance',value:'Same day'},{label:'Physical ID card',value:'Days to weeks (varies by RDO)'}],
+    firstTime:{
+      note:"If you are a new employee, your employer should register your TIN with BIR. If self-employed or registering independently, go to the Revenue District Office (RDO) covering your home address.",
+      requirements:[
+        {text:'BIR Form 1902 (for employees) or 1901 (for self-employed/professionals)',note:'Download from bir.gov.ph or get from the RDO'},
+        {text:'PSA Birth Certificate',note:'For identity verification'},
+        {text:'Any valid government-issued ID (if available)',note:'Any ID you currently have'},
+        {text:'For employees: Certificate of Employment or employer endorsement',note:'Employer usually handles the registration process entirely'},
+        {text:'For self-employed: Business registration documents',note:'DTI, SEC, or Mayor\'s Permit as applicable'},
+      ],
+      process:[
+        {step:'Check with your employer FIRST — for employed individuals, the company often handles BIR registration entirely',tip:'Do NOT register on your own if your employer is handling it. This can create duplicate TINs, which is illegal.'},
+        {step:'For self-registration: identify your Revenue District Office (RDO) at bir.gov.ph based on your address'},
+        {step:'Fill out the appropriate BIR registration form (1902 for employees, 1901 for self-employed)'},
+        {step:'Go to your RDO and submit the form with supporting documents'},
+        {step:'Receive your Certificate of Registration (COR) and TIN number'},
+        {step:'Request the physical TIN ID card from the same RDO — availability and wait time vary by office'},
+      ],
+    },
+    renewal:{
+      note:"The TIN ID card has no official expiry date — your TIN is permanent and doesn't require renewal. However, if you change employment status, move to a different RDO jurisdiction, or need to correct your registration details, you need to update your BIR records using BIR Form 1905.",
+      requirements:[
+        {text:'BIR Form 1905 (for updates/changes)',note:'Used to update address, civil status, or to transfer RDO'},
+        {text:'Supporting document for the change',note:'E.g., Marriage Certificate for name change, proof of new address for RDO transfer'},
+        {text:'Old TIN ID (if surrendering for an updated card)',note:'Surrender at the RDO'},
+      ],
+      process:[
+        {step:'Go to your current RDO with completed BIR Form 1905'},
+        {step:'Submit with supporting documents for the update'},
+        {step:'Wait for the RDO to process the update'},
+        {step:'Request a new TIN ID card once the update is complete (if desired)'},
+      ],
+    },
+    replacement:{
+      note:"If your TIN ID was lost or damaged, request a replacement from your registered RDO. Your TIN itself is permanent — you are only replacing the physical card.",
+      requirements:[
+        {text:'Affidavit of Loss (for lost card)',note:'Submit to your RDO'},
+        {text:'Damaged card (if applicable)',note:'Surrender the old card'},
+        {text:'Valid government-issued ID for identity verification'},
+      ],
+      process:[
+        {step:'Go to the RDO where you are registered'},
+        {step:'Submit the Affidavit of Loss or damaged card and request a replacement TIN ID'},
+        {step:'Fill out any required forms'},
+        {step:'Wait for processing — timing varies by RDO (days to weeks)'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Registering for a second TIN',desc:"Having more than one TIN is illegal and can result in penalties. If you think you already have a TIN from a previous employer, verify at your RDO or through BIR eReg before registering again."},
+      {title:'Expecting the TIN ID to work as a standalone primary ID everywhere',desc:"The TIN ID is useful but many institutions require it to be paired with another ID. Use it as a supplementary document."},
+      {title:'Going to the wrong RDO',desc:"Your TIN is tied to a specific RDO based on your address. Updates and replacements must be done at YOUR registered RDO — not just any BIR office."},
+      {title:'Not updating BIR when changing employers',desc:"When changing jobs, fill out BIR Form 2305 to notify BIR of your new employer. This matters for your year-end tax filing."},
+    ],
+    officialLinks:[
+      {label:'BIR Official Website',url:'https://www.bir.gov.ph',icon:'🌐'},
+      {label:'BIR eReg System',url:'https://ereg.bir.gov.ph',icon:'💻'},
+      {label:'BIR RDO Finder',url:'https://www.bir.gov.ph/index.php/contact-us/rdo.html',icon:'📍'},
+    ],
+  },
+
+  pwd:{
+    icon:'♿',name:'PWD ID',agency:'NCDA / City–Municipal Social Welfare and Development Office',
+    desc:"Issued free of charge to persons with disabilities (PWDs) in the Philippines. Entitles holders to discounts and benefits under RA 7277 (Magna Carta for Disabled Persons) and RA 10524. Processed at the local government unit level.",
+    feeShort:'FREE',timeShort:'Same day to 1 week',lastVerified:'March 2025',
+    eligibility:['Filipino citizens with a recognized disability (physical, sensory, intellectual, mental, psychosocial, communication, etc.)','Both permanent and temporary conditions may qualify','Must reside in the city/municipality where applying','Children with disabilities may be registered by a parent or guardian'],
+    ageReq:"Any age. Children with disabilities may also be registered — parents or guardians apply on their behalf.",
+    whatExpect:['PWD ID entitles holder to 20% discount + VAT exemption on specific goods and services','Registration and the card are FREE by law — do not pay for them','Apply at the CSWDO or MSWDO of your city/municipality — this is an LGU-level process','Validity is typically 3 years, though some LGUs issue lifetime IDs','A medical certificate documenting your disability is usually required','Discounts apply to medicine, medical services, transport, restaurants, and more'],
+    fees:[{label:'PWD registration and ID issuance',amount:'FREE'}],
+    processingTimes:[{label:'Application processing',value:'Same day to 1 week'},{label:'Depends on LGU',value:'Widely varies'}],
+    firstTime:{
+      requirements:[
+        {text:'Medical Certificate from a licensed physician',note:'Must describe the nature and extent of the disability'},
+        {text:'PSA Birth Certificate',note:'For age and identity verification'},
+        {text:'1 valid government-issued photo ID',note:'Or combination of secondary IDs if no primary ID is available yet'},
+        {text:'1x1 or 2x2 recent ID photo (white background)',note:'Some offices take your photo on-site'},
+        {text:'Accomplished PWD registration form',note:'Available at the CSWDO/MSWDO or barangay'},
+        {text:'Proof of residence',note:'Barangay certificate or utility bill'},
+      ],
+      process:[
+        {step:'Go to the City/Municipal Social Welfare and Development Office (CSWDO/MSWDO) in your area',tip:'Some barangays assist with PWD registration too — ask at your barangay hall if unsure of the location.'},
+        {step:'Bring your medical certificate, valid ID, birth certificate, and photos'},
+        {step:'Fill out the PWD registration form'},
+        {step:'Submit requirements to the staff for evaluation'},
+        {step:'Receive your PWD ID — timeline varies by LGU (same day to 1 week)'},
+      ],
+    },
+    renewal:{
+      note:"PWD ID validity is typically 3 years (some LGUs issue lifetime IDs). Renewal follows the same process as initial registration. An updated medical certificate is usually required.",
+      requirements:[
+        {text:'Old PWD ID (expiring or expired)',note:'Bring for surrender or reference'},
+        {text:'Updated Medical Certificate',note:'Confirms the disability is ongoing'},
+        {text:'Valid ID and proof of residence'},
+      ],
+      process:[
+        {step:'Get an updated medical certificate from your physician before going to the CSWDO'},
+        {step:'Go to the CSWDO/MSWDO with your expiring card and updated documents'},
+        {step:'Fill out the renewal form and submit all requirements'},
+        {step:'Receive the renewed PWD ID (free of charge)'},
+      ],
+    },
+    replacement:{
+      note:"If your PWD ID is lost or damaged, request a replacement at your CSWDO/MSWDO. The card remains free of charge.",
+      requirements:[
+        {text:'Affidavit of Loss (if lost)',note:'Recommended to prevent misuse of the discount privileges'},
+        {text:'Damaged card (if applicable)',note:'Surrender the damaged card'},
+        {text:'Valid ID or PSA Birth Certificate for identity confirmation'},
+      ],
+      process:[
+        {step:'Go to your CSWDO/MSWDO'},
+        {step:'Inform staff that your card was lost or damaged and request a replacement'},
+        {step:'Submit required documents'},
+        {step:'Receive the replacement card (free)'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Going to the wrong office',desc:"PWD IDs are issued by LGU-level offices (CSWDO or MSWDO) — not by NCDA directly. Go to the office for your city or municipality."},
+      {title:'Not having a proper medical certificate',desc:"A medical certificate from a licensed physician describing your disability is typically required. Get one from your specialist or attending physician, not just a general 'fit to work' certificate."},
+      {title:'Paying for the card',desc:"PWD registration and the card are FREE by law. Report any fee collection to your LGU or NCDA."},
+      {title:'Not knowing the full extent of PWD privileges',desc:"The 20% discount and VAT exemption cover medicine, medical and dental services, transportation, restaurants, recreation, and more under RA 7277 and RA 10524."},
+    ],
+    officialLinks:[
+      {label:'NCDA Official Website',url:'https://www.ncda.gov.ph',icon:'🌐'},
+      {label:'RA 7277 – Magna Carta for Disabled Persons',url:'https://www.ncda.gov.ph/disability-laws/republic-acts/ra-7277/',icon:'📋'},
+    ],
+  },
+
+  barangay:{
+    icon:'🏘️',name:'Barangay Clearance',agency:'Barangay Office (Local Government)',
+    desc:"Certifies that you have no pending complaint or case in your barangay records. Required for employment applications, business permits, loan applications, and many government and private transactions. Valid for 6 months to 1 year.",
+    feeShort:'₱50–₱200',timeShort:'Same day',lastVerified:'March 2025',
+    eligibility:['Any registered resident of the barangay','Must be registered/recognized as a resident in the barangay where you are applying'],
+    ageReq:"Generally 18 and above for employment or transaction purposes. Some clearances for minors may be assisted by parents.",
+    whatExpect:['One of the simplest and fastest documents to obtain in the Philippines','Usually issued the same day — often within minutes to an hour','Valid for 6 months to 1 year depending on the barangay','Fee varies widely per barangay — typically ₱50–₱200','Note: this is a clearance document, not a persistent physical ID card','You must be a registered resident of the barangay to get a clearance'],
+    fees:[{label:'Barangay Clearance',amount:'₱50–₱200 (varies by barangay)'}],
+    processingTimes:[{label:'Clearance issuance',value:'Same day (minutes to 1 hour)'}],
+    firstTime:{
+      note:"Barangay Clearance is valid for 6 months to 1 year and must be re-applied every time it's needed. There is no meaningful 'first time vs. repeat' distinction — the same process applies each time.",
+      requirements:[
+        {text:'Valid government-issued photo ID',note:'Any ID — Driver\'s License, PhilSys, Passport, etc.'},
+        {text:'Proof of residency in the barangay (if not already on record)',note:'Utility bill, lease contract, or similar'},
+        {text:'State the purpose of the clearance',note:'For employment, business, loan application, etc.'},
+        {text:'Clearance fee',note:'Ask at the barangay hall for the exact current fee'},
+      ],
+      process:[
+        {step:'Go to your barangay hall (look for the Barangay Secretary or Clerk\'s window)'},
+        {step:'State that you need a Barangay Clearance and provide the purpose'},
+        {step:'Present your valid ID and proof of residency'},
+        {step:'Fill out any form required by the barangay'},
+        {step:'Pay the fee at the cashier'},
+        {step:'Receive your Barangay Clearance — usually within minutes to an hour'},
+      ],
+    },
+    renewal:{
+      note:"Barangay Clearance does not have a 'renewal.' When it expires, you simply apply for a new one following the exact same process as above. There are no special steps for repeat applications.",
+      requirements:[
+        {text:'Valid ID',note:'Same as always'},
+        {text:'Clearance fee'},
+      ],
+      process:[
+        {step:'Go to your barangay hall when your old clearance expires or when a new one is needed'},
+        {step:'Follow the same steps as a first-time application — there is no special renewal process'},
+        {step:'Receive the new clearance same day'},
+      ],
+    },
+    replacement:{
+      note:"Barangay Clearance is a paper document. If you lose it, simply apply for a new one at your barangay hall — same process, same fee, issued same day. There is no formal 'replacement' procedure.",
+      requirements:[
+        {text:'Valid ID and fee',note:'Same requirements as any application'},
+      ],
+      process:[
+        {step:'Go to your barangay hall and request a new Barangay Clearance'},
+        {step:'Same process as first time — it is issued on the spot'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Going to the wrong barangay',desc:"You can only get a clearance from the barangay where you are registered as a resident. If you recently moved, register at your new barangay first."},
+      {title:'Submitting an expired clearance',desc:"Barangay clearances expire in 6 months to 1 year. Check the date on your clearance before submitting it — many offices will reject expired clearances."},
+      {title:'Confusing Barangay Clearance with Barangay Certificate',desc:"A Barangay Clearance certifies no pending cases. A Barangay Certificate or Certification certifies residence or specific facts. Many offices specifically need the clearance — confirm which one is required."},
+    ],
+    officialLinks:[
+      {label:'DILG Official Website',url:'https://www.dilg.gov.ph',icon:'🌐'},
+    ],
+  },
+
+  police:{
+    icon:'🚔',name:'PNP National Police Clearance',agency:'Philippine National Police (PNP)',
+    desc:"Background clearance issued through the National Police Clearance System (NPS). Often required for employment, travel, and other transactions. Different from NBI Clearance — both may be requested depending on the employer or agency.",
+    feeShort:'≈₱160',timeShort:'Same day (many sites)',lastVerified:'March 2026',
+    eligibility:['Filipino citizens and resident aliens as defined by PNP','Applicants who complete online registration and biometric capture','Typically 18+; minors may need a parent or guardian — confirm with your local PNP'],
+    ageReq:"Usually 18 years and above for standard employment clearances. Confirm with the issuing office if applying for a minor.",
+    whatExpect:['You usually register online first, then pay and appear on schedule for biometrics','Fees and schedules are set by PNP — verify the current amount on the official portal','Same-day release is common when there are no data issues — build in extra time if the system is busy','This is not interchangeable with NBI Clearance — read your requirement sheet carefully','Bring the reference number and payment confirmation from your online application'],
+    fees:[{label:'Police clearance (typical range)',amount:'≈₱160'},{label:'Payment channel fees',amount:'May apply'}],
+    processingTimes:[{label:'Biometric site (no issues)',value:'Same day'},{label:'With data review',value:'Varies'}],
+    firstTime:{
+      requirements:[
+        {text:'Valid government-issued photo ID',note:'Passport, driver\'s license, PhilSys ID, UMID, etc.'},
+        {text:'Online application reference / appointment',note:'Complete steps on the official PNP clearance portal'},
+        {text:'Payment proof',note:'As shown in the portal — GCash, banks, or accredited channels'},
+      ],
+      process:[
+        {step:'Create or log in to your account on the official PNP National Police Clearance / NPS website',tip:'Use only official .gov.ph or links published by PNP — avoid unofficial “fixers.”'},
+        {step:'Fill out the application form and select a payment and appointment slot'},
+        {step:'Pay the fee through an accredited channel and keep your receipt or reference'},
+        {step:'Go to the chosen police station or clearance center on your schedule'},
+        {step:'Have biometrics captured (photo and fingerprints)'},
+        {step:'Claim your printed clearance when released — check validity period on the document'},
+      ],
+    },
+    renewal:{
+      note:"Police clearances expire (often 6 months to 1 year depending on purpose). When yours expires, you apply again through the same system — there is no separate “renewal discount.”",
+      requirements:[
+        {text:'Valid ID',note:'Same as first time'},
+        {text:'New online application',note:'Each issuance is a new application'},
+      ],
+      process:[
+        {step:'Start a new application on the PNP clearance portal when your old clearance expires or is about to expire'},
+        {step:'Pay and attend biometrics as with your first clearance'},
+        {step:'Use the new clearance for your transaction — keep the old one only for your records'},
+      ],
+    },
+    replacement:{
+      note:"If you lose a printed clearance before it expires, you typically file a new application (with loss affidavit if the agency requires it). Policies vary by LGU/PNP office — ask the station that issued the requirement.",
+      requirements:[
+        {text:'Valid ID'},
+        {text:'Affidavit of loss',note:'If required by the issuing office'},
+        {text:'New full application via NPS',note:'Same fee structure as a new clearance'},
+      ],
+      process:[
+        {step:'Report the loss if your employer or school requires a police report or affidavit'},
+        {step:'Apply again through the official portal and state the reason if the form asks'},
+        {step:'Complete payment and biometrics'},
+        {step:'Keep the new document secure — reprints are not always free'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Confusing PNP clearance with NBI Clearance',desc:"They are different agencies and systems. Your requirement letter usually specifies which one — bring the right document."},
+      {title:'Using an expired clearance',desc:"Many employers accept only clearances issued within the last 6 months. Check the printed validity."},
+      {title:'Skipping the online step',desc:"Walk-in policies change by location. Completing the online flow first avoids being turned away."},
+    ],
+    officialLinks:[
+      {label:'PNP (official)',url:'https://pnp.gov.ph',icon:'🌐'},
+    ],
+  },
+
+  owwa:{
+    icon:'✈️',name:'OWWA Membership / e-Card',agency:'Overseas Workers Welfare Administration (OWWA)',
+    desc:"Membership with OWWA provides benefits, insurance, and programs for documented overseas Filipino workers (OFWs). The OWWA e-Card and membership record identify you as an active member.",
+    feeShort:'US$25 / equivalent',timeShort:'Same day to 2 weeks',lastVerified:'March 2026',
+    eligibility:['Documented OFWs (land- and sea-based) who meet OWWA membership rules','Balik-Manggagawa and workers with valid employment contracts as defined by OWWA','Membership must be kept current — verify contribution validity before travel'],
+    ageReq:"No specific minimum beyond legal working age for overseas deployment; dependents are covered under separate programs.",
+    whatExpect:['OWWA membership is often paid together with OEC or through accredited channels', 'The e-Card may be issued after verification — timelines vary by POLO/POEA office','Keep your OWWA number and receipt — employers and embassies may ask for them','Benefits and fees are updated periodically — always check owwa.gov.ph'],
+    fees:[{label:'OWWA membership (typical)',amount:'US$25 or peso equivalent'},{label:'Varies by program',amount:'See OWWA advisory'}],
+    processingTimes:[{label:'POEA/OWWA counter',value:'Same day–1 week'},{label:'e-Card delivery',value:'Varies'}],
+    firstTime:{
+      requirements:[
+        {text:'Valid passport',note:'For OFW documentation'},
+        {text:'Employment contract or job offer',note:'As required by POEA/OWWA for your category'},
+        {text:'OWWA membership payment',note:'Through accredited payment channels'},
+        {text:'Accomplished OWWA forms',note:'From owwa.gov.ph or the counter'},
+      ],
+      process:[
+        {step:'Check owwa.gov.ph for the latest membership categories and fees'},
+        {step:'Prepare your passport, contract, and other documents listed for your worker type'},
+        {step:'Pay OWWA membership through an authorized channel (POEA, OWWA regional office, or online if available)'},
+        {step:'Submit documents and receive proof of membership',tip:'Save digital copies of your receipt and confirmation.'},
+        {step:'Apply for the OWWA e-Card if offered at your processing site'},
+      ],
+    },
+    renewal:{
+      note:"Membership is time-limited. Renew before each contract or deployment cycle as required by OWWA.",
+      requirements:[
+        {text:'Previous OWWA membership reference or receipt',note:'If available'},
+        {text:'Updated employment documents',note:'For your new or renewed contract'},
+        {text:'Renewal payment',note:'Current rate on owwa.gov.ph'},
+      ],
+      process:[
+        {step:'Log in or visit the portal/office before your membership lapses'},
+        {step:'Submit updated contract and pay the renewal contribution'},
+        {step:'Download or collect your updated proof of membership'},
+      ],
+    },
+    replacement:{
+      note:"If your e-Card is lost or your record is inaccessible, request a reissue or verification letter from OWWA with valid ID and employment proof.",
+      requirements:[
+        {text:'Valid government ID'},
+        {text:'Affidavit of loss',note:'If required'},
+        {text:'Proof of current OWWA membership',note:'Receipt or employer certification'},
+      ],
+      process:[
+        {step:'Contact the nearest OWWA regional office or use the official online help channels'},
+        {step:'File a replacement request with ID and supporting documents'},
+        {step:'Pay any reissue fee if applicable — confirm on the spot'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Letting membership lapse before flight',desc:"Airlines and employers may check OWWA status. Renew early before your deployment date."},
+      {title:'Using unverified fixers',desc:"Only use official OWWA and POEA channels listed on government sites."},
+    ],
+    officialLinks:[
+      {label:'OWWA Official Website',url:'https://owwa.gov.ph',icon:'🌐'},
+      {label:'POEA / DMW',url:'https://www.dmw.gov.ph',icon:'🏛️'},
+    ],
+  },
+
+  seaman:{
+    icon:'⚓',name:"Seafarer's Book (SIRB)",agency:'Maritime Industry Authority (MARINA)',
+    desc:"The Seafarer's Identification and Record Book (SIRB), commonly called the Seaman's Book, is the official document for Filipino seafarers. It records your sea service and is required for many maritime employers and flag states.",
+    feeShort:'≈₱500–₱1,000',timeShort:'Several days to weeks',lastVerified:'March 2026',
+    eligibility:['Filipino citizens who are registered or applying as seafarers','STCW-compliant training and medical certificates as required for your rating','Applicants who meet MARINA’s enrollment and documentation rules'],
+    ageReq:"Must meet minimum working age and medical fitness for sea service (typically 18+ for many roles — verify for your certificate level).",
+    whatExpect:['Processing is often through MARINA Central or authorized offices — online appointment may be required','You need valid medical and STCW certificates for your position','Fees depend on book type (new, renewal, replacement) — check marina.gov.ph','Sea service is stamped or recorded in the SIRB — keep it dry and secure'],
+    fees:[{label:'New / renewal (indicative)',amount:'≈₱500–₱1,000'},{label:'Replacement',amount:'May differ'}],
+    processingTimes:[{label:'Application review',value:'Days to weeks'},{label:'Rush options',value:'If offered — ask MARINA'}],
+    firstTime:{
+      requirements:[
+        {text:'MARINA enrollment / SRN',note:'Seafarer registration number — follow MARINA instructions'},
+        {text:'Valid medical certificate',note:'PEME from an accredited clinic for seafarers'},
+        {text:'STCW certificates',note:'For your rating — from a MARINA-accredited training provider'},
+        {text:'PSA birth certificate and valid ID',note:'As listed on marina.gov.ph'},
+      ],
+      process:[
+        {step:'Register or log in to the MARINA online system (MARINA Integrated Seafarers Management Online / related services)',tip:'Bookmark only official marina.gov.ph links.'},
+        {step:'Book an appointment if required for your application type'},
+        {step:'Submit documents and pay the assessed fee'},
+        {step:'Attend data capture or verification if scheduled'},
+        {step:'Claim your SIRB or wait for courier delivery if offered'},
+      ],
+    },
+    renewal:{
+      note:"Renew before expiry — many employers require a valid SIRB with remaining pages and current STCW/medical documents.",
+      requirements:[
+        {text:'Expiring SIRB',note:'Bring the physical book'},
+        {text:'Updated medical and STCW',note:'As required for renewal'},
+      ],
+      process:[
+        {step:'Check MARINA’s renewal checklist online'},
+        {step:'Apply online or at the office and pay the renewal fee'},
+        {step:'Surrender the old book if required and receive the renewed SIRB'},
+      ],
+    },
+    replacement:{
+      note:"Lost or damaged books require a police report or affidavit and replacement fees per MARINA circulars.",
+      requirements:[
+        {text:'Affidavit of loss and/or police report',note:'As required by MARINA'},
+        {text:'Valid ID and seafarer registration details'},
+      ],
+      process:[
+        {step:'File a loss report if the book was stolen or lost at sea'},
+        {step:'Apply for replacement through MARINA with complete documents'},
+        {step:'Pay the replacement fee and collect the new SIRB'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Sailing with an expired SIRB or medical',desc:"Ships and manning agencies may refuse sign-on. Track dates on your book and certificates."},
+      {title:'Using non-accredited clinics',desc:"MARINA and POEA recognize only accredited medical facilities for PEME."},
+    ],
+    officialLinks:[
+      {label:'MARINA Official Website',url:'https://marina.gov.ph',icon:'🌐'},
+    ],
+  },
+
+  ibp:{
+    icon:'⚖️',name:'IBP ID',agency:'Integrated Bar of the Philippines (IBP)',
+    desc:"Identification issued to members of the Philippine Bar in good standing. Used to prove membership for court appearances, legal practice, and professional transactions.",
+    feeShort:'Chapter dues + ID fee',timeShort:'2–6 weeks',lastVerified:'March 2026',
+    eligibility:['Lawyers admitted to the Philippine Bar with valid IBP membership','Members who pay annual dues to their IBP chapter','Applicants in good standing — disbarred or inactive members follow different rules'],
+    ageReq:"No separate age rule beyond being a licensed attorney.",
+    whatExpect:['You apply through your IBP chapter — not through a single national walk-in window','Processing time depends on chapter workload','You may receive a digital ID, physical card, or both depending on chapter policy','Carry your Supreme Court roll number and receipt for verification'],
+    fees:[{label:'IBP membership + ID',amount:'Set by chapter — inquire locally'}],
+    processingTimes:[{label:'ID issuance',value:'2–6 weeks typical'}],
+    firstTime:{
+      requirements:[
+        {text:'Proof of Bar admission and IBP chapter membership',note:'Receipt of dues, good standing certificate' },
+        {text:'Accomplished IBP ID application form',note:'From your chapter'},
+        {text:'Passport photos',note:'As specified by the chapter'},
+      ],
+      process:[
+        {step:'Contact your local IBP chapter (usually the province or region where you practice)'},
+        {step:'Submit membership dues for the current year if not yet paid'},
+        {step:'File the ID application with photos and fees'},
+        {step:'Collect your ID when notified or request mailing if available'},
+      ],
+    },
+    renewal:{
+      note:"Annual IBP dues renewal may include a sticker or new card — follow your chapter’s notice.",
+      requirements:[
+        {text:'Current IBP dues payment'},
+        {text:'Old IBP ID',note:'If updating stickers or card'},
+      ],
+      process:[
+        {step:'Pay annual dues through your chapter’s published channels'},
+        {step:'Submit ID for renewal sticker or replacement if required'},
+      ],
+    },
+    replacement:{
+      note:"Lost ID: affidavit of loss, police report if required, and replacement fee at your chapter.",
+      requirements:[
+        {text:'Notarized affidavit of loss'},
+        {text:'Valid ID and Bar membership proof'},
+      ],
+      process:[
+        {step:'Report to your IBP chapter and request a replacement application'},
+        {step:'Pay the replacement fee and submit documents'},
+        {step:'Collect the new IBP ID'},
+      ],
+    },
+    commonMistakes:[
+      {title:'Practicing without current IBP membership',desc:"Court rules require good standing — renew dues on time."},
+      {title:'Applying at the wrong chapter',desc:"You generally transact with the chapter where you are registered."},
+    ],
+    officialLinks:[
+      {label:'IBP Official Website',url:'https://www.ibp.org.ph',icon:'🌐'},
+    ],
+  },
+};
+
+// ════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════
+let lang = 'en';
+let appType = 'first';
+let selectedId = null;
+let activeTab = 'overview';
+
+// ════════════════════════════════════════════════
+// STRINGS (i18n)
+// ════════════════════════════════════════════════
+const STRINGS = {
+  en:{
+    emptyTitle:'Select an ID above to get started',
+    emptySub:"We'll show you exactly what to prepare, the full process, fees, and common mistakes to avoid.",
+    firstTimeTitle:'🆕 First Time Application',
+    firstTimeDesc:'Applying for this ID for the very first time',
+    renewalTitle:'🔄 Renewal',
+    renewalDesc:'Your ID is expiring or has expired',
+    replacementTitle:'🔁 Replacement / Lost / Damaged',
+    replacementDesc:'ID was lost, stolen, or physically damaged',
+    free:'FREE',
+    feeLabel:'Typical fee',
+    timeLabel:'Processing time',
+    showingFor:'Showing guide for:',
+    labelFor_first:'First-time application',
+    labelFor_renewal:'Renewal / update',
+    labelFor_replacement:'Replacement (lost or damaged)',
+    tabOverview:'Overview',
+    tabReqs:'Requirements',
+    tabSteps:'Steps',
+    eligTitle:'Who can apply',
+    feesBreakdown:'Fees (indicative)',
+    type:'Item',
+    amount:'Amount',
+    feeNote:'Fees change without notice. Confirm the current amount on the official site or at the counter before you go.',
+    processingTimes:'Processing times',
+    whatExpect:'What to expect',
+    lastVerified:'Last verified',
+    ageReqLabel:'Age',
+    docNeeded:'Documents to prepare',
+    origNote:'Bring original documents plus clear photocopies when the office requires them.',
+    processSteps:'Step-by-step',
+    commonMistakes:'Common mistakes',
+    officialLinks:'Official links',
+    verifyNote:'Always open links from official .gov.ph sites or URLs published by the agency. Avoid unofficial “fixers” and phishing pages.',
+  },
+  fil:{},
+  bis:{},
+};
+
+['fil','bis'].forEach(lc=>{ STRINGS[lc] = Object.assign({}, STRINGS.en, STRINGS[lc]); });
+
+function s(key){
+  const L = STRINGS[lang] || STRINGS.en;
+  return (L && L[key]) || STRINGS.en[key] || key;
+}
+
+function appTypeDataKey(type){
+  if(type === 'first') return 'firstTime';
+  if(type === 'renewal') return 'renewal';
+  return 'replacement';
+}
+
+function setLang(l){
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const langBtn = document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')"]');
+  if(langBtn) langBtn.classList.add('active');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    const v = s(k);
+    if(v) el.textContent = v;
+  });
+  const et = document.getElementById('empty-title');
+  const es = document.getElementById('empty-sub');
+  if(et) et.textContent = s('emptyTitle');
+  if(es) es.textContent = s('emptySub');
+  renderIDGrid();
+  if(selectedId) renderDetail();
+}
+
+function setAppType(type){
+  appType = type;
+  document.getElementById('btn-first').classList.toggle('active', type === 'first');
+  document.getElementById('btn-renewal').classList.toggle('active', type === 'renewal');
+  document.getElementById('btn-replacement').classList.toggle('active', type === 'replacement');
+  const titles = document.querySelectorAll('.type-btn-title');
+  const descs = document.querySelectorAll('.type-btn-desc');
+  if(titles[0]) titles[0].textContent = s('firstTimeTitle');
+  if(titles[1]) titles[1].textContent = s('renewalTitle');
+  if(titles[2]) titles[2].textContent = s('replacementTitle');
+  if(descs[0]) descs[0].textContent = s('firstTimeDesc');
+  if(descs[1]) descs[1].textContent = s('renewalDesc');
+  if(descs[2]) descs[2].textContent = s('replacementDesc');
+  if(selectedId) renderDetail();
+}
+
+function selectID(id){ selectId(id); }
+
+function selectId(id){
+  if(!IDS[id]) return;
+  selectedId = id;
+  document.querySelectorAll('.id-card').forEach(c=>c.classList.remove('active'));
+  const card = document.getElementById('card-'+id);
+  if(card) card.classList.add('active');
+  activeTab = 'overview';
+  const eg = document.getElementById('empty-guide');
+  if(eg) eg.style.display = 'none';
+  renderDetail();
+  setTimeout(()=>{
+    const dp = document.getElementById('detail-panel');
+    if(dp) dp.scrollIntoView({behavior:'smooth',block:'start'});
+  }, 120);
+}
+
+/** Switches detail tabs: 'overview' | 'requirements' | 'steps' (also accepts legacy names). */
+function setTab(tab){
+  const t = String(tab || '').toLowerCase();
+  if(t === 'process' || t === 'step') activeTab = 'steps';
+  else if(['overview','requirements','steps'].includes(t)) activeTab = t;
+  else activeTab = 'overview';
+  renderTabs();
+  renderTabContent();
+}
+
+function showTab(tabName){
+  const raw = String(tabName || '').trim().toLowerCase();
+  const map = {
+    overview:'overview', requirement:'requirements', requirements:'requirements',
+    step:'steps', steps:'steps', process:'steps',
+  };
+  setTab(map[raw] || raw);
+}
+
+function renderIDGrid(){
+  const grid = document.getElementById('id-grid');
+  if(!grid) return;
+  const ids = Object.keys(IDS).sort((a,b)=> (IDS[a].name||'').localeCompare(IDS[b].name||''));
+  const esc = (v)=> String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+  grid.innerHTML = ids.map(id=>{
+    const d = IDS[id];
+    const timeLine = d.timeShort || '—';
+    return `
+    <div class="id-card ${selectedId===id?'active':''}" id="card-${id}" role="button" tabindex="0" onclick="selectId('${id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectId('${id}');}">
+      <div class="id-card-icon">${d.icon}</div>
+      <div class="id-card-name">${esc(d.name)}</div>
+      <div class="id-card-agency">${esc(d.agency)}</div>
+      <div class="id-card-time">${esc(timeLine)}</div>
+    </div>`;
+  }).join('');
+  const hc = document.getElementById('header-count');
+  if(hc) hc.textContent = '🗂️ '+ids.length+' IDs covered';
+}
+
+// ════════════════════════════════════════════════
+// RENDER DETAIL
+// ════════════════════════════════════════════════
+function renderDetail(){
+  const d = IDS[selectedId];
+  if(!d) return;
+
+  if(activeTab === 'mistakes' || activeTab === 'links') activeTab = 'overview';
+  if(activeTab === 'process') activeTab = 'steps';
+
+  document.getElementById('detail-panel').classList.add('visible');
+  document.getElementById('d-icon').textContent = d.icon;
+  document.getElementById('d-name').textContent = d.name;
+  document.getElementById('d-agency').textContent = d.agency;
+  document.getElementById('d-desc').textContent = d.desc;
+
+  const feeStr = String(d.feeShort || '');
+  const feeDisp = (feeStr === 'FREE' || /^FREE\b/i.test(feeStr)) ? `<span style="color:#4ade80">${s('free')}</span>` : d.feeShort;
+  document.getElementById('detail-meta').innerHTML = `
+    <div class="meta-pill">
+      <div class="meta-pill-label">${s('feeLabel')}</div>
+      <div class="meta-pill-value">${feeDisp}</div>
+    </div>
+    <div class="meta-pill">
+      <div class="meta-pill-label">${s('timeLabel')}</div>
+      <div class="meta-pill-value">${d.timeShort}</div>
+    </div>
+  `;
+
+  const typeLbl = appType === 'first' ? s('labelFor_first') : appType === 'renewal' ? s('labelFor_renewal') : s('labelFor_replacement');
+  document.getElementById('app-type-banner').innerHTML = `📋 ${s('showingFor')} <strong>${typeLbl}</strong>`;
+
+  renderTabs();
+  renderTabContent();
+}
+
+function renderTabs(){
+  const tabs = [
+    {key:'overview', label:s('tabOverview')},
+    {key:'requirements', label:s('tabReqs')},
+    {key:'steps', label:s('tabSteps')},
+  ];
+  document.getElementById('detail-tabs').innerHTML = tabs.map(t=>`
+    <button type="button" class="tab-btn${activeTab===t.key?' active':''}" onclick="showTab('${t.key}')">${t.label}</button>
+  `).join('');
+}
+
+function renderTabContent(){
+  const d = IDS[selectedId];
+  if(!d) return;
+  const data = d[appTypeDataKey(appType)];
+  const el = document.getElementById('tab-content');
+  if(!data){
+    el.innerHTML = '<div class="info-box">ℹ️ No detailed data for this application type.</div>';
+    return;
+  }
+
+  switch(activeTab){
+    case 'overview':     el.innerHTML = buildOverview(d); break;
+    case 'requirements': el.innerHTML = buildRequirements(d, data); break;
+    case 'steps':        el.innerHTML = buildProcess(d, data); break;
+    default:             el.innerHTML = buildOverview(d); break;
+  }
+}
+
+// ════════════════════════════════════════════════
+// TAB BUILDERS
+// ════════════════════════════════════════════════
+function buildOverview(d){
+  const eligItems = d.eligibility.map(e=>`<li>${e}</li>`).join('');
+  const expectItems = d.whatExpect.map(e=>`
+    <li class="expect-item"><div class="expect-dot"></div><div>${e}</div></li>
+  `).join('');
+  const timeCards = d.processingTimes.map(t=>`
+    <div class="time-card">
+      <div class="time-card-label">${t.label}</div>
+      <div class="time-card-value">${t.value}</div>
+    </div>
+  `).join('');
+  const feeRows = d.fees.map(f=>`
+    <tr>
+      <td>${f.label}</td>
+      <td class="${f.amount==='FREE'?'fee-free':''}">${f.amount}</td>
+    </tr>
+  `).join('');
+
+  return `
+    <div class="overview-grid">
+      <div>
+        <div class="section-block">
+          <div class="section-title">${s('eligTitle')}</div>
+          <div class="eligibility-box">
+            <div class="elig-title">${s('eligTitle')}</div>
+            <ul class="elig-list">${eligItems}</ul>
+          </div>
+          <div class="age-badge">🎂 ${s('ageReqLabel')}: ${d.ageReq}</div>
+        </div>
+        <div class="section-block">
+          <div class="section-title">${s('feesBreakdown')}</div>
+          <table class="fee-table">
+            <thead><tr><th>${s('type')}</th><th>${s('amount')}</th></tr></thead>
+            <tbody>${feeRows}</tbody>
+          </table>
+          <div class="warn-box">⚠️ ${s('feeNote')}</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-block">
+          <div class="section-title">${s('processingTimes')}</div>
+          <div class="time-cards">${timeCards}</div>
+        </div>
+        <div class="section-block">
+          <div class="section-title">${s('whatExpect')}</div>
+          <ul class="expect-list">${expectItems}</ul>
+        </div>
+      </div>
+    </div>
+    ${buildMistakesSection(d)}
+    ${buildLinksSection(d)}
+    <div class="last-verified">🕐 ${s('lastVerified')}: <strong>${d.lastVerified}</strong></div>
+  `;
+}
+
+function buildMistakesSection(d){
+  const items = d.commonMistakes.map(m=>`
+    <li class="mistake-item">
+      <div class="mistake-icon">⚠️</div>
+      <div>
+        <div class="mistake-title">${m.title}</div>
+        <div class="mistake-desc">${m.desc}</div>
+      </div>
+    </li>
+  `).join('');
+  return `
+    <div class="section-block">
+      <div class="section-title">${s('commonMistakes')}</div>
+      <ul class="mistakes-list">${items}</ul>
+    </div>`;
+}
+
+function buildLinksSection(d){
+  const items = d.officialLinks.map(l=>`
+    <a class="official-link" href="${l.url}" target="_blank" rel="noopener noreferrer">
+      <span>${l.icon}</span>
+      <span>${l.label}</span>
+      <span>↗</span>
+    </a>
+  `).join('');
+  return `
+    <div class="section-block">
+      <div class="section-title">${s('officialLinks')}</div>
+      <div class="official-links">${items}</div>
+    </div>
+    <div class="info-box" style="margin-top:16px">ℹ️ ${s('verifyNote')}</div>`;
+}
+
+function buildRequirements(d, data){
+  const items = data.requirements.map(r=>`
+    <li class="req-item">
+      <div class="req-check">✓</div>
+      <div class="req-text">
+        <div>${r.text}</div>
+        ${r.note?`<div class="req-note">${r.note}</div>`:''}
+      </div>
+    </li>
+  `).join('');
+  const noteHtml = data.note ? `<div class="info-box">ℹ️ ${data.note}</div>` : '';
+  return `
+    ${noteHtml}
+    <div class="section-block">
+      <div class="section-title">${s('docNeeded')}</div>
+      <ul class="req-list">${items}</ul>
+    </div>
+    <div class="warn-box">⚠️ ${s('origNote')}</div>
+    <div class="last-verified">🕐 ${s('lastVerified')}: <strong>${d.lastVerified}</strong></div>
+  `;
+}
+
+function buildProcess(d, data){
+  const steps = data.process.map((p,i)=>`
+    <li class="step-item">
+      <div class="step-num">${i+1}</div>
+      <div class="step-text">
+        ${p.step}
+        ${p.tip?`<div class="step-tip">💡 ${p.tip}</div>`:''}
+      </div>
+    </li>
+  `).join('');
+  const noteHtml = data.note ? `<div class="info-box" style="margin-bottom:16px">ℹ️ ${data.note}</div>` : '';
+  return `
+    ${noteHtml}
+    <div class="section-block">
+      <div class="section-title">${s('processSteps')}</div>
+      <ul class="steps-list">${steps}</ul>
+    </div>
+    <div class="last-verified">🕐 ${s('lastVerified')}: <strong>${d.lastVerified}</strong></div>
+  `;
+}
+
+// ════════════════════════════════════════════════
+// SCROLL TO TOP BUTTON
+// ════════════════════════════════════════════════
+window.addEventListener('scroll',()=>{
+  document.getElementById('back-btn').classList.toggle('show', window.scrollY > 400);
+});
+
+// ════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════
+renderIDGrid();
+</script>
+</body>
+</html>
